@@ -9,9 +9,9 @@ function update_EGFP_figure() {
   data_image.src    =    data_filename;
 }
 
-function update_scarlet_cartoon_figure() {
-  var filename = "./images/cartoon/" + document.getElementById("scarlet_cartoon_traces").value; 
-  var image = document.getElementById("scarlet_cartoon");
+function update_Figure_1() {
+  var filename = "./Figures/Figure_1/" + document.getElementById("eigenstate_selector").value; 
+  var image = document.getElementById("y_eigenstate_image");
   image.src = filename;
 }
 
