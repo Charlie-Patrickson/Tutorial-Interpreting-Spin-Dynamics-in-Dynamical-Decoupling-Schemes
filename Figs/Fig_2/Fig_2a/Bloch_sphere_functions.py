@@ -11,20 +11,6 @@ from matplotlib.patches import FancyArrowPatch
 from mpl_toolkits.mplot3d import proj3d
 dot =  np.linalg.multi_dot
 
-'''
-MATLAB CODE USED FOR SIMS FOR THETA_M = 0 and PHI_S = 0
-
-eps=2*pi;
-w_s=2*pi;
-phi_s=0;
-
-% Case #1, single drive Rabi
-g = 0.5*pi;
-Bx = g.*cos(w_s.*t+phi_s);
-By = 0*ones(1,Nt+1)
-Bz = eps*ones(1,Nt+1)
-'''
-
 def Make_solid_outer_circle(Tilt_angle, ax, linewidth):
     
     Tilt_angle = (Tilt_angle/180)*np.pi
