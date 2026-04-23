@@ -17,20 +17,6 @@ plt.rcParams['mathtext.fontset'] = 'dejavuserif'
 plt.rcParams['font.family'] = 'serif'
 plt.rcParams['font.sans-serif'] = ['Cambria math', 'sans-serif']
 
-'''
-MATLAB CODE USED FOR SIMS FOR THETA_M = 0 and PHI_S = 0
-
-eps=2*pi;
-w_s=2*pi;
-phi_s=0;
-
-% Case #1, single drive Rabi
-g = 0.5*pi;
-Bx = g.*cos(w_s.*t+phi_s);
-By = 0*ones(1,Nt+1)
-Bz = eps*ones(1,Nt+1)
-'''
-
 output_dir = "frames"
 os.makedirs(output_dir, exist_ok=True)  # Only creates it if it doesn't already exist
 
@@ -44,7 +30,7 @@ drive_colour_x = "#8D3CB2"
 Signal_color = "#218D8C"
 Spin_colours = ['k', 'dimgrey', 'grey', 'darkgrey', 'lightgrey']
 
-data = [pd.read_csv("Z Eigenstates.csv")]
+data = [pd.read_csv("Fig_1a_Sim_data.csv")]
 Total_No_of_data_points = 300
 
 index = 0
