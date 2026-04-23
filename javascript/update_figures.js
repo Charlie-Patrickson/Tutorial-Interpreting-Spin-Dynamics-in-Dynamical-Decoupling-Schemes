@@ -10,14 +10,14 @@ function update_EGFP_figure() {
 }
 
 function update_Figure_1() {
-  var filename = "./Figs/Fig_1/" + document.getElementById("Eigenstates").value; 
-  var image = document.getElementById("Eigenstates");
+  var filename = "./Figs/Fig_1/" + document.getElementById("eigenstate_selector").value; 
+  var image = document.getElementById("Eigenstates_image");
   image.src = filename;
 }
 
 function update_Figure_3() {
-  var filename = "./Figs/Fig_3/" + document.getElementById("Ramsey_measurement").value; 
-  var image = document.getElementById("Ramsey_measurement");
+  var filename = "./Figs/Fig_3/" + document.getElementById("ramsey_selector").value; 
+  var image = document.getElementById("Ramsey_GIF");
   image.src = filename;
 }
 
