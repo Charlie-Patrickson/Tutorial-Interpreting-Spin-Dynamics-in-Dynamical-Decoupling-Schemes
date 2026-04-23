@@ -30,7 +30,7 @@ drive_colour_x = "#8D3CB2"
 Signal_color = "#218D8C"
 Spin_colours = ['k', 'dimgrey', 'grey', 'darkgrey', 'lightgrey']
 
-data = [pd.read_csv("RotatingRabi.csv")]
+data = [pd.read_csv("Fig_2b_Rotating_rabi_Sim_data.csv")]
 Total_No_of_data_points = 352
 
 index = 0
