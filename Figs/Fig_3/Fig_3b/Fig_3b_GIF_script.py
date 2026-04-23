@@ -30,7 +30,7 @@ drive_colour_x = "#CA2C20"
 Signal_color = "#218D8C"
 Spin_colours = ['k', 'dimgrey', 'grey', 'darkgrey', 'lightgrey']
 
-data = [pd.read_csv("RotatingRamsey.csv")]
+data = [pd.read_csv("Fig_3b_RotatingRamsey_Sim_data.csv")]
 Total_No_of_data_points = 352
 
 index = 0
