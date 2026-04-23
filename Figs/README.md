@@ -25,6 +25,7 @@ Each animation and function script, labelled "Fig_xx_GIF_script.py" and "Bloch_s
 
 The documentation below describes the parameters, arguments and keywords used in the main "Fig_xx_GIF_script.py" file. Note that all files need to be stored in the same directory. 
 
+<pre>
 Skip_Lines = selects the time steps to plot, e.g. if Skip_Lines = 5, every 5th line of "Fig_xx_Sim_data.csv" will be plotted. 
 linewidth = defines lineiwdths used to plot the Bloch sphere itself, including the solid outer line and the dashed lines that define the XY, YZ, and XZ planes, and the Bloch vector trajectory.
 linestyle = linestyle used to plot the circles that define the XY, YZ, and XZ planes.
@@ -44,3 +45,4 @@ ax2 = optional, usually the axis used to plot the Sz component of the Bloch vect
 ax3 = optional, either used to plot the effective field vector (Fig 2), or the Sx Bloch vector component (Fig. 3)
 filenames = 
 images = 
+</pre>
