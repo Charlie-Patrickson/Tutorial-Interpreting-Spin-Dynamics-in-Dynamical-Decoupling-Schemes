@@ -30,11 +30,11 @@ drive_colour_x = "#CA2C20"
 Signal_color = "#218D8C"
 
 #data = pd.read_csv("RotatingRamsey.csv")
-Noisy_data1 = pd.read_csv("Noisy Rotating Ramsey1.csv")
-Noisy_data2 = pd.read_csv("Noisy Rotating Ramsey2.csv")
-Noisy_data3 = pd.read_csv("Noisy Rotating Ramsey3.csv")
-Noisy_data4 = pd.read_csv("Noisy Rotating Ramsey4.csv")
-Noisy_data5 = pd.read_csv("Noisy Rotating Ramsey5.csv")
+Noisy_data1 = pd.read_csv("Fig_3c_SimData_1.csv")
+Noisy_data2 = pd.read_csv("Fig_3c_SimData_2.csv")
+Noisy_data3 = pd.read_csv("Fig_3c_SimData_3.csv")
+Noisy_data4 = pd.read_csv("Fig_3c_SimData_4.csv")
+Noisy_data5 = pd.read_csv("Fig_3c_SimData_5.csv")
 data = [Noisy_data1, Noisy_data2, Noisy_data3, Noisy_data4,  Noisy_data5][::-1]
 #Spin_colours = ['k', 'dimgrey', 'grey', 'darkgrey', 'lightgrey'][::-1] #Grayscale
 Spin_colours = ['#3A049A', '#A82296', '#D12E21', '#F57E1B', '#F5CD05'][::-1] #Plasma
