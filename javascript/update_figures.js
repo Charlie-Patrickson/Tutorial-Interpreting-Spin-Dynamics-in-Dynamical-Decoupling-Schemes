@@ -10,7 +10,13 @@ function update_EGFP_figure() {
 }
 
 function update_Figure_1() {
-  var filename = "./Figures/Figure_1/" + document.getElementById("eigenstate_selector").value; 
+  var filename = "" + document.getElementById("eigenstate_selector").value; 
+  var image = document.getElementById("y_eigenstate_image");
+  image.src = filename;
+}
+
+function update_Figure_3() {
+  var filename = "" + document.getElementById("eigenstate_selector").value; 
   var image = document.getElementById("y_eigenstate_image");
   image.src = filename;
 }
