@@ -1,3 +1,7 @@
+<p>
+  This repository is based on work by AndrewGYork (CC BY 4.0):https://github.com/AndrewGYork/gfp_magnetofluorescence
+</p>
+
 `update_figures.js` is specific code, hand-written to animate the figures in this particular publication. If you copy this publication as a template, you'll have to rewrite this file yourself (or just use static figures).
 
 You should also delete or modify the `google-analytics/analytics.js` script, since the tracking code is specific to me.
