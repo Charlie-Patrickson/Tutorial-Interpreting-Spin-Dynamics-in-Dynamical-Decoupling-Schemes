@@ -30,7 +30,7 @@ drive_colour_x = "#2C5AB6"
 Signal_color = "#218D8C"
 Spin_colours = ['k', 'dimgrey', 'grey', 'darkgrey', 'lightgrey']
 
-data = [pd.read_csv("X Eigenstates.csv")]
+data = [pd.read_csv("Fig_1c_Sim_data.csv")]
 Total_No_of_data_points = 100
 
 index = 0
