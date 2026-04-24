@@ -18,7 +18,7 @@ This script generates Bloch sphere animations from precomputed quantum dynamics 
 
 - defines plotting parameters/ Bloch sphere appearance
 - loads the paired "Fig_xx_Sim_data.csv" file
-- iterates over each row (i.e. time step)
+- iterates over each row (i.e. time step) of the paired "Fig_xx_Sim_data.csv" file, and
   - calls "Make_a_pretty_Bloch_sphere" to create the empty, bare Bloch sphere plot
   - calls "Plot_Bloch_trajectories" to plot:
     - the Bloch trajectory up to the current time step
