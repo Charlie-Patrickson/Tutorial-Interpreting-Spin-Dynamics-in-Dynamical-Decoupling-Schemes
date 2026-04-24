@@ -4,7 +4,7 @@ Each figure in the accompanying manuscript (found here, https://charlie-patricks
 
 ## Quantum Dynamics Data Formatting in "Fig_xx_Sim_data.csv" Files
 
-The "Fig_xx_Sim_data.csv" files describe the Bloch, $\bm{S}$ and effective field vectors, $\Omega_{eff}$, at a series of discrete time steps, as calculated using Simulation.ipynb in the Simulation_Code directory. The dedicated animation scripts (labelled "Fig_xx_GIF_script.py") require .csv file formats using the following headers:
+The "Fig_xx_Sim_data.csv" files describe the Bloch, ${S}$ and effective field vectors, $\Omega_{eff}$, at a series of discrete time steps, as calculated using Simulation.ipynb in the Simulation_Code directory. The dedicated animation scripts (labelled "Fig_xx_GIF_script.py") require .csv file formats using the following headers:
 
 Time	Sx	Sy	Sz	Hx	Hy	Hz
 
@@ -97,6 +97,30 @@ phi, theta, x, y, z = unused
 
 ### `Plot_Bloch_trajectories(i, Signal_color, linewidth, ax, arrowhead_size, data, drive_colour_x, drive_colour_z, Signal_Max_Y, spin_colours='k', ax2 = None, ax3 = None)`
 
+This function is called from the main `Fig_xx_GIF_script.py` script for each selected row (i.e. time step) of the paired `Fig_xx_Sim_data.csv` file(s), and plots the Bloch vector trajectories up to the current time step, the current Bloch vector, and the current drive field on the Bloch sphere created using `Make_a_pretty_Bloch_sphere` in the same loop of the main `Fig_xx_GIF_script.py`. The function is handed all data in the paired `Fig_xx_Sim_data.csv` file(s), parses the data from each file using the headers, uses a row index passed from `Fig_xx_GIF_script.py` to identify the current step, and plots the Bloch trjectory using the passed spin colour(s), the current Bloch vector using the passed spin colour(s), the Sz component of the Bloch vector on ax2 if passed an ax2 axis, the drive field on the Bloch sphere, optionally the drive field on ax3 if passed ax3 and a signal field onto the Bloch sphere if a signal field is present in the paired `Fig_xx_Sim_data.csv` files(s).
+
+This function is called within the main `Fig_xx_GIF_script.py` loop and is responsible for plotting the time evolution of the Bloch vector and associated fields at each time step.
+
+For a given index `i`, corresponding to a row (i.e. time step) in the paired `Fig_xx_Sim_data.csv` file(s), the function:
+
+- extracts `Fig_xx_Sim_data.csv` data using column headers  
+- plots the Bloch trajectory on the Bloch sphere up to the current time step defined by `i`
+- plots the instantaneous Bloch vector on the Bloch sphere  
+- plots the effective (drive) field vector on the Bloch sphere  
+
+Additional functionality includes:
+
+- plotting the $S_z$ component of the Bloch vector on `ax2` (if provided)  
+- plotting the effective field or $S_x$ component of the Bloch vector `ax3` (if provided)  
+- plotting a signal field on the Bloch sphere if present in the data
+
+Multiple datasets can be handled simultaneously, with colours defined by `spin_colours`.
+
+#### Notes
+
+- `data` may contain one or multiple datasets (e.g. for multiple Bloch vectors)  
+- the function assumes input data follows the format defined in `Fig_xx_Sim_data.csv`  
+- this function is called once per time step during GIF generation  
 
 ### `Arrow3D(FancyArrowPatch)`
 
