@@ -98,14 +98,23 @@ phi, theta, x, y, z = unused
 ### `Plot_Bloch_trajectories(i, Signal_color, linewidth, ax, arrowhead_size, data, drive_colour_x, drive_colour_z, Signal_Max_Y, spin_colours='k', ax2 = None, ax3 = None)`
 
 
-### class Arrow3D(FancyArrowPatch):
-    def __init__(self, xs, ys, zs, *args, **kwargs):
-        super().__init__((0,0), (0,0), *args, **kwargs)
-        self._verts3d = xs, ys, zs
+### `Arrow3D(FancyArrowPatch)`
 
-    def do_3d_projection(self, renderer=None):
-        xs3d, ys3d, zs3d = self._verts3d
-        xs, ys, zs = proj3d.proj_transform(xs3d, ys3d, zs3d, self.axes.M)
-        self.set_positions((xs[0],ys[0]),(xs[1],ys[1]))
+This class enables the rendering of arrows in 3D Matplotlib plots. Since Matplotlib does not natively support true 3D arrow objects, `Arrow3D` extends the 2D `FancyArrowPatch` class and manually projects 3D coordinates onto the 2D plotting canvas. Here it is used to plot directional vectors on the Bloch sphere, including:
 
-        return np.min(zs)
+- the instantaneous Bloch vector
+- the instantaneous effective field vector
+
+#### How it works
+
+- The arrow is defined by two points in 3D space (`xs`, `ys`, `zs`)
+- These coordinates are stored when the object is initialised
+- During rendering, the 3D coordinates are projected into 2D using Matplotlib’s internal projection system (`proj3d.proj_transform`)
+- The resulting 2D coordinates are used to position a standard 2D arrow (`FancyArrowPatch`)
+- A depth value is returned to ensure correct layering of objects in the 3D plot
+
+#### Notes
+
+- This is a projection-based method rather than true 3D rendering
+- The appearance of the arrow depends on the current viewing angle of the 3D axes
+- The class relies on Matplotlib’s internal projection matrix (`axes.M`)
