@@ -12,7 +12,9 @@ Supporting code - HTML, JavaScript, and CSS files, along with supporting assets 
 TO-DO
 
 1) Produce independent y and z tilt angles on the Bloch sphere
-2) Normalise effective field vector sizes
-3) Remove unused variables: Max_Signal_Y, index
-4) Add drive Y colour as standard
-5) Comment code
+2) Plot the Bloch sphere before the initial loop and pass to the loop each time
+3) Normalise effective field vector sizes
+4) Remove unused variables: Max_Signal_Y, index
+5) Add drive Y colour as standard
+6) Pass plot_circle a list of planes so that it is only called once instead of three times
+7) Comment code
