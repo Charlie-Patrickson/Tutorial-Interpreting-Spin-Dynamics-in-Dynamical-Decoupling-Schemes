@@ -7,7 +7,7 @@ This repository is intended to hold a (mostly) self-contained scientific publica
 
 
 **Simulation_Code** - scripts and models used to calculate the time-evolution of each quantum system presented in the manuscript <br>
-**Figures** - hosts the simulated quantum dynamics data, and visualisation code (i.e. gif making code) used to produce each figure in the accompanying manuscript. See /Figures/README.md for code documentation, including data formats, dependencies and script structure. <br>
+**Figures** - hosts the simulated quantum dynamics output data, and visualisation code (i.e. gif making code) used to produce each figure in the accompanying manuscript. See /Figures/README.md for code documentation, including data formats, dependencies and script structure. <br>
 **Supporting code** - HTML, JavaScript, and CSS files, along with supporting assets (e.g. index.html, appendix.html). Based in part on work by Andrew G. York (CC BY 4.0): https://github.com/AndrewGYork/gfp_magnetofluorescence <br>
 
 
