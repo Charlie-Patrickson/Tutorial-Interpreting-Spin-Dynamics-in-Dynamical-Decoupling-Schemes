@@ -11,5 +11,8 @@ Supporting code - HTML, JavaScript, and CSS files, along with supporting assets 
 
 TO-DO
 
-1) Comment code
-2) 
+1) Produce independent y and z tilt angles on the Bloch sphere
+2) Normalise effective field vector sizes
+3) Remove unused variables: Max_Signal_Y, index
+4) Add drive Y colour as standard
+5) Comment code
