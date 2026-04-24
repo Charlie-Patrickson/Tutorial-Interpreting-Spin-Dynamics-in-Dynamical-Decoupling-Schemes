@@ -59,7 +59,7 @@ images = a list of all the images listed in "filenames"
 The functions defined in `Bloch_sphere_Functions.py` handle the construction of the Bloch sphere and the plotting of Bloch vector trajectories. Key functions include:
 
 ### `Make_solid_outer_circle(Tilt_angle, ax, linewidth)`
-This function plots the solid outer circle of the Bloch sphere. It initially defines a circle in the YZ-plane. When `Tilt_angle ≠ 0`, the Bloch sphere is rotated (via `Make_a_pretty_Bloch_sphere`) to change the viewing perspective. To ensure the outer circle remains perpendicular to the observer, this function applies rotation matrices to the initialised circle.
+This function plots the solid outer circle of the Bloch sphere. It initially defines a circle in the YZ-plane. When `Tilt_angle ≠ 0`, the Bloch sphere is rotated (via `Make_a_pretty_Bloch_sphere`) to change the viewing perspective. To ensure the outer circle remains perpendicular to the observer, this function applies rotation matrices to the initialised YZ circle.
 
 #### Parameters
 
