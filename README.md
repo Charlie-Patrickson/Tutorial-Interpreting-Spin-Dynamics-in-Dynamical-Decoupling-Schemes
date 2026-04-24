@@ -12,11 +12,12 @@ Supporting code - HTML, JavaScript, and CSS files, along with supporting assets 
 TO-DO
 
 1) Produce independent y and z tilt angles on the Bloch sphere
-2) The handed linestyle is currently overridden directly in "Make_a_pretty_Bloch_sphere", change this
-3) phi, theta, x, y, z all unused in "Make_a_pretty_Bloch_sphere"
-4) Plot the Bloch sphere before the initial loop and pass to the loop each time
-5) Normalise effective field vector sizes
-6) Remove unused variables: Max_Signal_Y, index
-7) Add drive Y colour as standard
-8) Pass plot_circle a list of planes so that it is only called once instead of three times
-9) Comment code
+2) The handed linestyle is currently overridden directly in "Make_a_pretty_Bloch_sphere", change this, line 86
+3) Remove scatter points added in "Make_a_pretty_Bloch_sphere" line 97 and as currently hidden by axis dots (as preferred)
+4) phi, theta, x, y, z all unused in "Make_a_pretty_Bloch_sphere", lines 88 - 94
+5) Plot the Bloch sphere before the initial loop and pass to the loop each time
+6) Normalise effective field vector sizes
+7) Remove unused variables: Max_Signal_Y, index in main GIF scripts
+8) Add drive Y colour as standard
+9) Pass plot_circle a list of planes so that it is only called once instead of three times
+10) Comment code
