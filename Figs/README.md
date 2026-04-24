@@ -58,32 +58,44 @@ images = a list of all the images listed in "filenames"
 
 The functions defined in `Bloch_sphere_Functions.py` handle the construction of the Bloch sphere and the plotting of Bloch vector trajectories. Key functions include:
 
-### def Make_solid_outer_circle(Tilt_angle, ax, linewidth):
+### `Make_solid_outer_circle(Tilt_angle, ax, linewidth)`
 This function plots the solid outer circle of the Bloch sphere. It initially defines a circle in the YZ-plane. When `Tilt_angle ≠ 0`, the Bloch sphere is rotated (via `Make_a_pretty_Bloch_sphere`) to change the viewing perspective. To ensure the outer circle remains perpendicular to the observer, this function applies rotation matrices to the initialised circle.
 
 #### Parameters
 
-scale = moves the circle slightly outside the Bloch sphere so it doesnt obscure the Bloch trajectory etc.
-Tile_angle = given in degrees, rotates the Bloch sphere to change plot appearance
-phi = 0 to 2pi used to plot complete circles
+```text
+scale - moves the circle slightly outside the Bloch sphere so it doesnt obscure the Bloch trajectory etc.
+Tile_angle - given in degrees, rotates the Bloch sphere to change plot appearance
+phi - 0 to 2pi used to plot complete circles
 
-x, y, z = initialised to define a circle in the YZ-plane, facing the observer when Tilt_angle = 0
+x, y, z - initialised to define a circle in the YZ-plane, facing the observer when Tilt_angle = 0
 
-Ry = rotation matrix around the y axis, by angle Tilt_angle
-Rz = rotation matrix around the z axis, by angle Tilt_angle
+Ry - rotation matrix around the y axis, by angle Tilt_angle
+Rz - rotation matrix around the z axis, by angle Tilt_angle
 
-vector = rotated coordinates obtained by applying Ry and Rz to (x, y, z).
+vector - rotated coordinates obtained by applying Ry and Rz to (x, y, z).
+```
 
-### def axis_dots(x, y, z, ax):  
+### `axis_dots(x, y, z, ax)`  
+This function simply plots the axis intercepts as small circles on the Bloch sphere. 
 
+### `plot_circle(ax, plane, radius, linestyle='solid', linewidth=1, z_position=0, phi1 = 0, phi2=2*np.pi, colour = "grey")`
+This function plots the grey dashed circles defining the XY-, XZ- and YZ-planes. The function is handed a specific plane to plot a circle on.
 
-### def plot_circle(ax, plane, radius, linestyle='solid', linewidth=1, z_position=0, phi1 = 0, phi2=2*np.pi, colour = "grey"):
+### `Make_a_pretty_Bloch_sphere(ax, linestyle, linewidth=1, Tilt_angle=18, ax2 = None)`
+This function is called from the main Fig_xx_GIF_script.py script and coordinates the construction of the Bloch sphere:
 
+1) calls axis_dots to plot axis intercepts
+2) calls plot_circle to render dashed circles in the XY, XZ, and YZ planes
+3) calls Make_solid_outer_circle to render the outer boundary
+4) rotates the axes by Tilt_angle
+5) removes the background grid
+6) sets axis limits so the Bloch sphere fills the image
 
-### def Make_a_pretty_Bloch_sphere(ax, linestyle, linewidth=1, Tilt_angle=18, ax2 = None):
+linestyle = currently overrides the handed linestyle, defines the linestyle of the XY-, YZ-, XZ-plane circles. Set to (0, (8, 3)) for all plots used here. 
+phi, theta, x, y, z = unused
 
-
-### def Plot_Bloch_trajectories(i, Signal_color, linewidth, ax, arrowhead_size, data, drive_colour_x, drive_colour_z, Signal_Max_Y, spin_colours='k', ax2 = None, ax3 = None):
+### `Plot_Bloch_trajectories(i, Signal_color, linewidth, ax, arrowhead_size, data, drive_colour_x, drive_colour_z, Signal_Max_Y, spin_colours='k', ax2 = None, ax3 = None)`
 
 
 ### class Arrow3D(FancyArrowPatch):
