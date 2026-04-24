@@ -281,15 +281,94 @@ To model these dynamics, we must identify the state occupied at thermal equilibr
 Modeling the thermal interactions between a two level system and it's environment is generally complex. Consequently, $T_1$ decay is often represented phenomenologically using an exponential decay function, $e^{-t/ T_1}$. As it describes relaxation from one of the eigenstates $|0\rangle$, or $|1\rangle$, we apply it to the $S_z$ component of our Bloch vector. To model the effect we start with an initial state $|\Psi_i\rangle = |0\rangle$, corresponding to ${S_i} = (0, 0, 1) = \hat{z}$ on the Bloch sphere. Fig. \ref{Fig5} plots the $S_z$ relaxation as a function of time, with the inset Bloch sphere describing the full trajectory. 
 
   
-</h3>
-<p>
+\section{Rotating Reference Frame Transformation of a Rabi Oscillation}
 
-</p>
+Fig. \ref{Fig2} of the main text introduces the two level dynamics produced by a Rabi oscillation. These dynamics are dramatically simplified by placing the interaction in a rotating reference frame that tracks with the Bloch precession. In the interaction picture, this involves applying a transformation to the Hamiltonian governing the interaction, which we derive here in detail. 
 
-</p>
+The lab frame Hamiltonian is $H = H_0 + H_{Rabi} = \tfrac{1}{2} \omega_0\sigma_z + \Omega \cos(\omega t)\sigma_x$, where $H_0 =  \tfrac{1}{2}\omega_0 \sigma_z$ describes the Bloch precession, and $H_{Rabi} = \Omega \cos(\omega t)\sigma_x$ describes the Rabi drive. To transform $H$ into a reference frame that rotates with the Bloch precession, $\tfrac{1}{2} \omega_0\sigma_z $, we use the matrix $U = e^{i\tfrac{1}{2}\omega t \sigma_z}$, which obeys the identity $e^{i\tfrac{1}{2}\omega t \sigma_z} = \cos(\tfrac{1}{2}\omega t) + i \sin(\tfrac{1}{2}\omega t)\sigma_z$. The transformed Hamiltonian, $H^{\prime}$, is calculated using 
+
+\begin{eqnarray}
+H^{\prime} = UHU^{\dagger} + i\dot{U}U^{\dagger}.
+\end{eqnarray}
+
+Substituting in $H$ and $U$, 
+
+\begin{eqnarray}
+H^{\prime} = e^{i\tfrac{1}{2}\omega t \sigma_z} \left( \tfrac{1}{2}\omega_0 \sigma_z + \Omega \cos(\omega t) \sigma_x \right) e^{-i\tfrac{1}{2}\omega t \sigma_z} + i \tfrac{d}{dt}e^{i\tfrac{1}{2}\omega t \sigma_z} e^{-i\tfrac{1}{2}\omega t \sigma_z}.
+\end{eqnarray}
+
+The time derivative $i \tfrac{d}{dt}e^{i\tfrac{1}{2}\omega t \sigma_z} e^{-i\tfrac{1}{2}\omega t \sigma_z}$ conveniently reduces to $- \tfrac{1}{2}\omega_0 \sigma_z$. Substituting in $U = \cos(\tfrac{1}{2}\omega t) + i \sin(\tfrac{1}{2}\omega t)\sigma_z$,
+
+\begin{eqnarray}
+H^{\prime} =  \left(\cos(\tfrac{1}{2}\omega t) + i \sin(\tfrac{1}{2}\omega t)\sigma_z\right) \left( \tfrac{1}{2}\omega_0 \sigma_z + \Omega \cos(\omega t) \sigma_x \right)\left(\cos(\tfrac{1}{2}\omega t) - i \sin(\tfrac{1}{2}\omega t)\sigma_z\right) - \tfrac{1}{2}\omega_0 \sigma_z.
+\end{eqnarray}
+
+Multiplying through and retaining the order of the Pauli matrices, we arrive at,
+
+\begin{eqnarray}
+H^{\prime} = \left(\cos^2(\tfrac{1}{2}\omega t) + \sin^2(\tfrac{1}{2}\omega t)\sigma_z^2\right) \tfrac{1}{2}\omega_0\sigma_z + \left(\cos^2(\tfrac{1}{2}\omega t)\sigma_x + \sin^2(\tfrac{1}{2}\omega t)\sigma_z\sigma_x\sigma_z\right)\Omega \cos(\omega t) + \left( i\sin(\tfrac{1}{2}\omega t)\cos(\tfrac{1}{2}\omega t)\sigma_z\sigma_x - i\sin(\tfrac{1}{2}\omega t)\cos(\tfrac{1}{2}\omega t)\sigma_x\sigma_z \right)\Omega \cos(\omega t) -\tfrac{1}{2}\omega_0 \sigma_z.
+\end{eqnarray}
+
+Applying the identities $\cos^2(\theta) + \sin^2(\theta) = 1$, $\sigma_z\sigma_x = i\sigma_y$, $\sigma_x\sigma_z = -i\sigma_y$ and $\sigma_z\sigma_x\sigma_z = -i\sigma_x$, we find
+
+\begin{eqnarray}
+H^{\prime} = \tfrac{1}{2}\omega \sigma_z - \tfrac{1}{2}\omega_0\sigma_z + \left(\cos^2(\tfrac{1}{2}\omega_0t)\sigma_x - \sin^2(\tfrac{1}{2}\omega_0t)\right)\Omega \cos(\omega_0t) + \left(-2\sin(\tfrac{1}{2}\omega_0t)\cos(\tfrac{1}{2}\omega_0t)\sigma_y \right)\Omega \cos(\omega_0t),
+\end{eqnarray}
+
+which can be further simplified with the trigonometric identities, $\sin(2\theta) = 2\sin(\theta)\cos(\theta)$ and $\cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)$;
+
+\begin{eqnarray}
+H^{\prime} = \tfrac{1}{2}(\omega- \omega_0)\sigma_z+\cos(\omega_0t)\Omega \cos(\omega_0t)\sigma_x - \sin(\omega_0t)\Omega \cos(\omega_0t)\sigma_y.
+\end{eqnarray}
+
+To remove the time dependence of the trigonometric terms, we use $\cos(\theta)\cos(\phi) = \tfrac{1}{2}(\cos(\theta - \phi) + \cos(\theta + \phi))$ and $\sin(\theta)cos(\phi) = \tfrac{1}{2} (\sin(\theta + \phi) + \sin(\theta - \phi))$;
+
+\begin{eqnarray}
+H^{\prime} &= \tfrac{1}{2}(\omega- \omega_0)\sigma_z+\tfrac{1}{2}\Omega\left(\cos(\omega_0t - \omega_0t) + \cos(\omega_0t + \omega_0t)\right)\sigma_x - \tfrac{1}{2}\Omega\left(\sin(\omega_0t - \omega_0t) + \sin(\omega_0t + \omega_0t)\right)\sigma_y\\
+&=\tfrac{1}{2}(\omega- \omega_0)\sigma_z+\tfrac{1}{2}\Omega\left(1 + \cos(2\omega_0t)\right)\sigma_x - \tfrac{1}{2}\Omega\left(\sin(2\omega_0t)\right)\sigma_y.
+\end{eqnarray}
+
+Applying the rotating wave approximation we disregard the fast oscillating $2\omega_0$ terms, to arrive at,
+
+\begin{eqnarray}
+H^{\prime} = \tfrac{1}{2}(\omega- \omega_0)\sigma_z+\tfrac{1}{2}\Omega.
+\end{eqnarray},
+
+which is the Hamiltonian used in Fig. \ref{Fig2}b of the main text. If the frequency of the drive field, $\omega$, does not match the Bloch precession, $\omega_0$, then there is an additional term $\tfrac{1}{2}(\omega- \omega_0)\sigma_z$. On the Bloch sphere in this rotating frame, this corresponds to a rotation around the $z$ axis as the drive field loses track of the Bloch precession. Here we assume the drive is resonant, so that $\omega = \omega_0$.
 
 
-</p>
+{\color{blue}
+\section{Rotating Reference Frame Transformation for Detuned CCD in Fig. 4f}
+
+Starting the first rotating frame CCD Hamiltonian,
+
+\begin{eqnarray}
+H_{CCD}^{\prime} = (\omega_0 - \omega)\sigma_z^{\prime} + \tfrac{1}{2}\Omega \sigma_x^{\prime} - \epsilon_m \sin(\omega_m t)\sigma_y^{\prime}.
+\end{eqnarray}
+
+Moving to a reference frame that rotates around the $x$-axis at the CCD modulation frequency, $\omega_m$ , so that now $U = e^{i\tfrac{1}{2}\omega_m t \sigma_x}$,
+
+\begin{eqnarray}
+H_{CCD}^{\prime} = U\left((\omega_0 - \omega)\sigma_z^{\prime} + \tfrac{1}{2}\Omega \sigma_x^{\prime} - \epsilon_m \sin(\omega_m t)\sigma_y^{\prime}\right)U^{\dagger} + i\dot{U}U^{\dagger}.
+\end{eqnarray}
+
+Applying the same identity,  $U = e^{i\tfrac{1}{2}\omega_m t \sigma_x} = \cos(\tfrac{1}{2}\omega_m t) + i \sin(\tfrac{1}{2}\omega_m t)\sigma_x$, 
+
+\begin{eqnarray}
+H_{CCD}^{\prime\prime} = (\cos(\tfrac{1}{2}\omega_m t) + i \sin(\tfrac{1}{2}\omega_m t)\sigma_x^{\prime\prime})\left(\tfrac{1}{2}(\omega_0 - \omega)\sigma_z^{\prime\prime} + \tfrac{1}{2}\Omega \sigma_x^{\prime\prime} - \epsilon_m \sin(\omega_m t)\sigma_y^{\prime\prime}\right)(\cos(\tfrac{1}{2}\omega_m t) - i \sin(\tfrac{1}{2}\omega_m t)\sigma_x^{\prime\prime}) - \tfrac{1}{2}\omega_m \sigma_x^{\prime\prime}.
+\end{eqnarray}
+
+where the double prime denotes the second rotating reference frame. Below we transform the Bloch precession detuning term, $\tfrac{1}{2}(\omega_0 - \omega)\sigma_z^{\prime\prime}$ and the Rabi detunung term, $\tfrac{1}{2}(\Omega -\omega_m)\sigma_x^{\prime\prime}$;
+
+\begin{eqnarray}
+H_{CCD \ Detuning}^{\prime\prime} = \tfrac{1}{2}(\Omega -\omega_m)\sigma_x^{\prime\prime} + \tfrac{1}{2}(\omega_0 - \omega)\left(\cos^2(\tfrac{1}{2}\omega_m t)\sigma_z^{\prime\prime} + \sin^2(\tfrac{1}{2}\omega_m t) \sigma_x^{\prime\prime}\sigma_z^{\prime\prime}\sigma_x^{\prime\prime} \right) + \tfrac{1}{2}(\omega_0 - \omega)\left(i \sin(\tfrac{1}{2}\omega_m t)\cos(\tfrac{1}{2}\omega_m t)\sigma_x^{\prime \prime} \sigma_z^{\prime \prime} -i \sin(\tfrac{1}{2}\omega_m t)\cos(\tfrac{1}{2}\omega_m t)\sigma_z^{\prime \prime} \sigma_x^{\prime \prime} \right)
+\end{eqnarray}
+
+Here we apply the Pauli matrix transformations $\sigma_z\sigma_x = i\sigma_y$, $\sigma_x\sigma_z = -i\sigma_y$ and $\sigma_x\sigma_z\sigma_x = -i\sigma_z$, and the trigonometric identities $\sin(2\theta) = 2\sin(\theta)\cos(\theta)$ and $\cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)$, to arrive at,
+
+\begin{eqnarray}
+H_{CCD \ Detuning}^{\prime\prime} = \tfrac{1}{2}(\Omega -\omega_m)\sigma_x^{\prime\prime} + \tfrac{1}{2}(\omega_0 - \omega)\cos(\omega_m t)\sigma_z^{\prime\prime} + \tfrac{1}{2}(\omega_0 - \omega)(\sin(\omega_m t) \sigma_y^{\prime \prime}).
+\end{eqnarray}
 
   
 <h3>Author Contributions</h3>
@@ -299,7 +378,6 @@ Modeling the thermal interactions between a two level system and it's environmen
 <p>
   $\Omega
 </p>
-
 
 <h3>
 Open-source software</h3>
