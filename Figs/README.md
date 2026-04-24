@@ -36,6 +36,7 @@ Skip_Lines = selects the time steps to plot, e.g. if Skip_Lines = 5, every 5th l
 linewidth = defines linewidths used to plot the Bloch sphere itself, including the solid outer line and the dashed lines that define the XY, YZ, and XZ planes, and the Bloch vector trajectory.
 linestyle = linestyle used to plot the circles that define the XY, YZ, and XZ planes.
 arrowhead_size = arrowhead size of the Bloch and effective field vectors
+tilt_angle = optional argument, takes degrees, rotates the Bloch sphere (currently along the y and z axes simultaneously) to change appearance
 Signal_Max_Y = unused
 drive_colour_x = colour used for the effective field x component
 drive_colour_y = colour used for the effective field y component (not used in every file, needs to be updated)
@@ -51,8 +52,48 @@ ax2 = optional, usually the axis used to plot the Sz component of the Bloch vect
 ax3 = optional, either used to plot the effective field vector (Fig 2), or the Sx Bloch vector component (Fig. 3)
 filenames = list of output images saved using the "Frame_no" variable in the "frames" folder
 images = a list of all the images listed in "filenames" 
+```
 
 ## Supporting `Bloch_sphere_Functions.py`
 
+The functions defined in `Bloch_sphere_Functions.py` handle the construction of the Bloch sphere and the plotting of Bloch vector trajectories. Key functions include:
+
+### def Make_solid_outer_circle(Tilt_angle, ax, linewidth):
+This function plots the solid outer circle of the Bloch sphere. It initially defines a circle in the YZ-plane. When `Tilt_angle ≠ 0`, the Bloch sphere is rotated (via `Make_a_pretty_Bloch_sphere`) to change the viewing perspective. To ensure the outer circle remains perpendicular to the observer, this function applies rotation matrices to the initialised circle.
+
+#### Parameters
+
+scale = moves the circle slightly outside the Bloch sphere so it doesnt obscure the Bloch trajectory etc.
+Tile_angle = given in degrees, rotates the Bloch sphere to change plot appearance
+phi = 0 to 2pi used to plot complete circles
+
+x, y, z = initialised to define a circle in the YZ-plane, facing the observer when Tilt_angle = 0
+
+Ry = rotation matrix around the y axis, by angle Tilt_angle
+Rz = rotation matrix around the z axis, by angle Tilt_angle
+
+vector = rotated coordinates obtained by applying Ry and Rz to (x, y, z).
+
+### def axis_dots(x, y, z, ax):  
 
 
+### def plot_circle(ax, plane, radius, linestyle='solid', linewidth=1, z_position=0, phi1 = 0, phi2=2*np.pi, colour = "grey"):
+
+
+### def Make_a_pretty_Bloch_sphere(ax, linestyle, linewidth=1, Tilt_angle=18, ax2 = None):
+
+
+### def Plot_Bloch_trajectories(i, Signal_color, linewidth, ax, arrowhead_size, data, drive_colour_x, drive_colour_z, Signal_Max_Y, spin_colours='k', ax2 = None, ax3 = None):
+
+
+### class Arrow3D(FancyArrowPatch):
+    def __init__(self, xs, ys, zs, *args, **kwargs):
+        super().__init__((0,0), (0,0), *args, **kwargs)
+        self._verts3d = xs, ys, zs
+
+    def do_3d_projection(self, renderer=None):
+        xs3d, ys3d, zs3d = self._verts3d
+        xs, ys, zs = proj3d.proj_transform(xs3d, ys3d, zs3d, self.axes.M)
+        self.set_positions((xs[0],ys[0]),(xs[1],ys[1]))
+
+        return np.min(zs)
