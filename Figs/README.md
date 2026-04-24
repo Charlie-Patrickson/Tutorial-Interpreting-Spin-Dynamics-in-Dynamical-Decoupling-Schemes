@@ -65,7 +65,7 @@ This function plots the solid outer circle of the Bloch sphere. It initially def
 
 ```text
 scale - moves the circle slightly outside the Bloch sphere so it doesnt obscure the Bloch trajectory etc.
-Tile_angle - given in degrees, rotates the Bloch sphere to change plot appearance
+Tilt_angle - given in degrees, rotates the Bloch sphere to change plot appearance
 phi - 0 to 2pi used to plot complete circles
 
 x, y, z - initialised to define a circle in the YZ-plane, facing the observer when Tilt_angle = 0
