@@ -273,7 +273,6 @@ header {
   color: #FDFDFB;
   width:100%;
   float:none;
-  position:fixed;
   border: 1px solid #000;
   -webkit-border-top-right-radius: 4px;
   -webkit-border-bottom-right-radius: 4px;
