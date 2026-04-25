@@ -271,18 +271,15 @@ td {
 header {
   background-color: #474747;
   color: #FDFDFB;
-  width:100%;
-  float:none;
+  width: 100%;
+  float: none;
+  position: relative; /* or remove */
   border: 1px solid #000;
-  -webkit-border-top-right-radius: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  -moz-border-radius-topright: 4px;
-  -moz-border-radius-bottomright: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  padding: 34px 25px 22px 50px;
-  margin: 30px 25px 0 0;
-  -webkit-font-smoothing: antialiased;
+
+  border-radius: 0 4px 4px 0;
+
+  padding: 20px 25px;
+  margin: 0;
 }
 
 p.header {
