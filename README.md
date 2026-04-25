@@ -11,7 +11,7 @@ This repository is intended to hold a (mostly) self-contained scientific publica
 **Supporting code** - HTML, JavaScript, and CSS files, along with supporting assets (e.g. index.html, appendix.html). Based in part on work by Andrew G. York (CC BY 4.0): https://github.com/AndrewGYork/gfp_magnetofluorescence <br>
 
 
-TO-DO
+CODING TO-DO
 
 1) Produce independent y and z tilt angles on the Bloch sphere
 2) The handed linestyle is currently overridden directly in "Make_a_pretty_Bloch_sphere", change this, line 86
@@ -23,3 +23,8 @@ TO-DO
 8) Add drive Y colour as standard
 9) Pass plot_circle a list of planes so that it is only called once instead of three times
 10) Comment code
+
+MANUSCRIPT TO-DO
+
+1) Work out citations
+2) Work out self referencing
