@@ -26,5 +26,6 @@ CODING TO-DO
 
 MANUSCRIPT TO-DO
 
-1) Work out citations
-2) Work out self referencing
+1) Add paragraphs
+2) Work out citations
+3) Work out self referencing
