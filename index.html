@@ -283,9 +283,9 @@ and,
 
 <p>Modeling the thermal interactions between a two level system and it's environment is generally complex. Consequently, $T_1$ decay is often represented phenomenologically using an exponential decay function, $e^{-t/ T_1}$. As it describes relaxation from one of the eigenstates $|0\rangle$, or $|1\rangle$, we apply it to the $S_z$ component of our Bloch vector. To model the effect we start with an initial state $|\Psi_i\rangle = |0\rangle$, corresponding to ${S_i} = (0, 0, 1) = \hat{z}$ on the Bloch sphere. Fig. \ref{Fig5} plots the $S_z$ relaxation as a function of time, with the inset Bloch sphere describing the full trajectory. </p>
 
+<h2> Appendix </h2>
+<h3> Rotating Reference Frame Transformation of a Rabi Oscillation </h3>
   
-\section{Rotating Reference Frame Transformation of a Rabi Oscillation}
-
 <p>Fig. \ref{Fig2} of the main text introduces the two level dynamics produced by a Rabi oscillation. These dynamics are dramatically simplified by placing the interaction in a rotating reference frame that tracks with the Bloch precession. In the interaction picture, this involves applying a transformation to the Hamiltonian governing the interaction, which we derive here in detail. </p>
 
 <p>The lab frame Hamiltonian is $H = H_0 + H_{Rabi} = \tfrac{1}{2} \omega_0\sigma_z + \Omega \cos(\omega t)\sigma_x$, where $H_0 =  \tfrac{1}{2}\omega_0 \sigma_z$ describes the Bloch precession, and $H_{Rabi} = \Omega \cos(\omega t)\sigma_x$ describes the Rabi drive. To transform $H$ into a reference frame that rotates with the Bloch precession, $\tfrac{1}{2} \omega_0\sigma_z $, we use the matrix $U = e^{i\tfrac{1}{2}\omega t \sigma_z}$, which obeys the identity $e^{i\tfrac{1}{2}\omega t \sigma_z} = \cos(\tfrac{1}{2}\omega t) + i \sin(\tfrac{1}{2}\omega t)\sigma_z$. The transformed Hamiltonian, $H^{\prime}$, is calculated using 
@@ -340,7 +340,7 @@ H^{\prime} = \tfrac{1}{2}(\omega- \omega_0)\sigma_z+\tfrac{1}{2}\Omega.
 which is the Hamiltonian used in Fig. \ref{Fig2}b of the main text. If the frequency of the drive field, $\omega$, does not match the Bloch precession, $\omega_0$, then there is an additional term $\tfrac{1}{2}(\omega- \omega_0)\sigma_z$. On the Bloch sphere in this rotating frame, this corresponds to a rotation around the $z$ axis as the drive field loses track of the Bloch precession. Here we assume the drive is resonant, so that $\omega = \omega_0$.</p>
 
 
-\section{Rotating Reference Frame Transformation for Detuned CCD in Fig. 4f}
+<h3> Rotating Reference Frame Transformation for Detuned CCD in Fig. 4f </h3>
 
 <p>Starting the first rotating frame CCD Hamiltonian,
 
