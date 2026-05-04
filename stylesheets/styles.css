@@ -271,7 +271,7 @@ td {
 header {
   background-color: #474747;
   color: #FDFDFB;
-  width:170px;
+  width:220px;
   float:left;
   position:fixed;
   border: 1px solid #000;
@@ -374,7 +374,7 @@ a.buttons:hover {
 
 section {
   width:650px;
-  margin-left: 200px;
+  margin-left: 240px;
   float:right;
   padding-bottom:50px;
 }
