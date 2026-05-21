@@ -21,6 +21,12 @@ function update_Figure_3() {
   image.src = filename;
 }
 
+function update_Figure_4() {
+  var filename = "./Figs/Fig_4/" + document.getElementById("Pulsed_DD_selector").value; 
+  var image = document.getElementById("Hahn_Echo_GIF");
+  image.src = filename;
+}
+
 function update_scarlet_FMN_figure() {
   var filename = "./images/Scarlet_bead_figure/pngs/" + document.getElementById("scarlet_FMN_traces").value; 
   var image = document.getElementById("scarlet_FMN");
