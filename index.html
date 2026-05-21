@@ -208,6 +208,26 @@ where $^{\prime}$s describe operators in the rotating frame, we have applied the
 
 <h4>Hahn Echo</h4>
 
+<figure id="Hahn_Echo_Fig_4">
+  <img src="./Figs/Fig_4/Fig_4a.gif" 
+       alt="Hahn_Echo_measurement" 
+       id="Hahn_Echo_GIF">
+  
+<table class="figure_controls">
+  <tr>
+  <td>Sample: </td><td><select id="Hahn_Echo_selector" onchange="update_Figure_4()">
+    <option value="Fig_4a.gif" selected="selected">Hahn_Echo</option>
+    <option value="Fig_4b/Fig_4b.gif"> CPMG</option>
+  </select></td>
+    </tr>
+</table>
+ 
+  <figcaption>
+    Pulsed Dynamical Decoupling
+  </figcaption>
+
+</figure><p></p>
+  
 <p>The Hahn echo is an archetypal example of dynamical decoupling. It has a similar structure to the Ramsey pulse sequence, but has an additional $\pi$-pulse in middle of the delay period, $\tau$. The $\pi$-pulse flips the Bloch vector around the $x$ axis, so that the uncontrolled rotations are reversed during the second delay period $\tau$. This returns the Bloch vector to its initial position after the first $\pi/2$-pulse. It remains a well used scheme for its relative simplicity, and its ability to characterize noise sources. This sequence is illustrated in the upper panel of Fig. \ref{Fig4}a. We use the Hamiltonian $H^{\prime} = H_{detuning}^{\prime} + H_{Hahn Echo}^{\prime} = (\omega_0 - \omega)\sigma_z^{\prime} + \tfrac{1}{2}\Omega(t) \sigma_x^{\prime}$, and choose a $\pi/2$-pulse ($\pi$-pulse) pulsewidth of $T = \frac{\pi}{2\Omega}$ ($T = \frac{\pi}{\Omega}$), during which $\Omega(t) = \Omega$. We set $\Omega(t) = 0$ during the delay periods, $\tau$.</p>
 
 <p>The $S_z^{\prime}$ component of the Bloch vector is plotted in the lower panel of Fig. \ref{Fig4}a for a range of ${\Omega_{detuning}^{\prime}}$ values. This situation is typical in ensembles of two level systems, where inhomogeneous local noise produces a distribution of Bloch precession frequencies $\omega_0$ across the ensemble. The inset Bloch spheres illustrate the trajectories before and after the middle $\pi$-pulse. During the first $\tau$ interval, the Bloch vectors fan out in the $x^{\prime}y^{\prime}$-plane due to the different rotation rates associated with each ${\Omega_{detuning}^{\prime}}$ value. The middle $\pi$-pulse flips the Bloch vectors around the $x^{\prime}$-axis. This reverses the rotation rates, so that at the end of the second $\tau$ interval, the ensemble is refocused back where it began on the Bloch sphere after the initial $\pi/2$-pulse. Despite the range of uncontrolled rotations during the $\tau$ interval, each Bloch vector completes the sequence in the target state $|\Psi_f\rangle^{\prime} = |0\rangle$, corresponding to ${S_f}^{\prime} = (0, 0, 1) = \hat{z}^{\prime}$ in the Bloch representation. </p>
