@@ -29,10 +29,10 @@ drive_colour_z = "#E78C07"
 drive_colour_x = "#455DC3"
 Signal_color = "#218D8C"
 
-data = pd.read_csv("Rotating Hahn Echo.csv")
-Noisy_data2 = pd.read_csv("Detuned Rotating Hahn Echo (0.025).csv")
-Noisy_data3 = pd.read_csv("Detuned Rotating Hahn Echo (0.05).csv")
-Noisy_data4 = pd.read_csv("Detuned Rotating Hahn Echo (0.075).csv")
+data = pd.read_csv("Fig_4a_SimData_1.csv")
+Noisy_data2 = pd.read_csv("Fig_4a_SimData_2.csv")
+Noisy_data3 = pd.read_csv("Fig_4a_SimData_3.csv")
+Noisy_data4 = pd.read_csv("Fig_4a_SimData_4.csv")
 
 data = [data, Noisy_data2, Noisy_data3, Noisy_data4]
 Spin_colours = ['#2406A2', '#A01B9B', '#F1814C', '#FAD524', 'lightgrey']
