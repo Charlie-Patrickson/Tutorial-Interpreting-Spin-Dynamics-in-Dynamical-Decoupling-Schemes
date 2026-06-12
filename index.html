@@ -242,6 +242,26 @@ where $^{\prime}$s describe operators in the rotating frame, we have applied the
 
 <h4>The Spin-Lock Sequence</h4>
 
+<figure id="Continuous_DD_Fig_5">
+  <img src="./Figs/Fig_5/Fig_5a.gif" 
+       alt="Spin_Lock" 
+       id="Spin_Lock_GIF">
+  
+<table class="figure_controls">
+  <tr>
+  <td>Sample: </td><td><select id="Continuous_DD_selector" onchange="update_Figure_4()">
+    <option value="Fig_5a.gif" selected="selected">Spin_Lock</option>
+    <option value="Fig_5b/Fig_5b.gif"> CCD</option>
+  </select></td>
+    </tr>
+</table>
+ 
+  <figcaption>
+    Conmtinuous Dynamical Decoupling
+  </figcaption>
+
+</figure><p></p>
+  
 <p>The spin lock sequence applies an AC field parallel to the Bloch vector and resonant with the Bloch precession\cite{}. In this configuration the two level system becomes "locked" to the AC field, forming an eigenstate. Systems can be retained in this state for a very long time, making the spin lock a useful tool for slow operations, such as the detection of very weak fields in quantum sensing\cite{}, entangling gates between weakly coupled systems\cite{}, or as an extended idling state\cite{}. To execute the scheme, a $\pi/2$-pulse first rotates the Bloch vector from the initial state ${S_i} = \left (0, 0, 1 \right) = \hat{z}$ on the Bloch sphere, to the $y$-axis, ${S} = \left (0, 1, 0 \right) = \hat{y}$. The resonant AC field is immediately turned on, and applied parallel to the Bloch vector along $y$. A final $\pi/2$-pulse projects the Bloch vector back onto the $z$-axis for readout. </p>
 
 <p>To illustrate the scheme we start with the lab frame Hamiltonian, $H_{SpinLock} = H_{Detuning} + H_{\pi/2}(t) + H_{Drive}(t)= \tfrac{1}{2}\omega_0\sigma_z + \Omega_{\pi/2} \cos (\omega t) \sigma_x + \Omega_{Drive} \cos (\omega t + \pi/2) \sigma_y$. We transform the Hamiltonian to a reference frame that rotates with the Bloch vector at the drive field frequency, $\tfrac{1}{2}\omega \sigma_z$, where $H_{SpinLock}^{\prime} = H_{Detuning}^{\prime} + H_{\pi/2}^{\prime}(t) + H_{Drive}^{\prime}(t)= \tfrac{1}{2}(\omega_0 - \omega)\sigma_z + \tfrac{1}{2}\Omega_{\pi/2}(t) \sigma_x + \tfrac{1}{2}\Omega_{Drive}(t) \sigma_y$ (see Supplementary Note \ref{} for the full derivation). The sequence is visualized in the upper panel of Fig. \ref{Fig4}c, with $\Omega_{\pi/2}^{\prime}(t)$ and $\Omega_{Drive}^{\prime}(t)$ plotted as a function of time. During the $\pi/2$ pulses we set $\Omega_{\pi/2}(t) = \Omega$ for a pulsewidth of $T = \frac{\pi}{2\Omega}$, with $\Omega_{\pi/2}(t) = 0$ otherwise. Conversely, $\Omega_{Drive}(t) = \Omega$ in between the $\pi/2$-pulses, and $\Omega_{Drive}(t) = 0$ during $\pi/2$-pulses. </p>
