@@ -27,6 +27,12 @@ function update_Figure_4() {
   image.src = filename;
 }
 
+function update_Figure_5() {
+  var filename = "./Figs/Fig_5/" + document.getElementById("Continuous_DD_selector").value; 
+  var image = document.getElementById("Spin_Lock_GIF");
+  image.src = filename;
+}
+
 function update_scarlet_FMN_figure() {
   var filename = "./images/Scarlet_bead_figure/pngs/" + document.getElementById("scarlet_FMN_traces").value; 
   var image = document.getElementById("scarlet_FMN");
