@@ -33,6 +33,12 @@ function update_Figure_5() {
   image.src = filename;
 }
 
+function update_Figure_6() {
+  var filename = "./Figs/Fig_6/" + document.getElementById("Coherence_Time_selector").value; 
+  var image = document.getElementById("T1_GIF");
+  image.src = filename;
+}
+
 function update_scarlet_FMN_figure() {
   var filename = "./images/Scarlet_bead_figure/pngs/" + document.getElementById("scarlet_FMN_traces").value; 
   var image = document.getElementById("scarlet_FMN");
