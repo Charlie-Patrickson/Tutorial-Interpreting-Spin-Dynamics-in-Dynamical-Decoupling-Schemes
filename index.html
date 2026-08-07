@@ -258,7 +258,7 @@ where $^{\prime}$s describe operators in the rotating frame, we have applied the
 </table>
  
   <figcaption>
-    Conmtinuous Dynamical Decoupling
+    Continuous Dynamical Decoupling
   </figcaption>
 
 </figure><p></p>
@@ -313,6 +313,27 @@ and,
 <p>So far, our models have included noise as an unwanted detuning term that modifies of the Bloch precession frequency, $\omega_0$. This noise causes the Bloch vector to deviate from its intended trajectory, so that the location of the Bloch vector and therefore the state of the two level system slowly deviates. However, in all systems this amounts to a loss of information on the state of the two level system. It is a consequence of operating at finite temperature, where there is always a $k_bT$ temperature distribution available to perturb the state. The rate of information loss can be characterised by a decay or relaxation rate, or equivalently, a lifetime or coherence time. As many control schemes are designed to preserve the Bloch vector for as long as possible, the lifetime is a critical metric across quantum technologies. However, the lifetime can be characterised under several different criteria, with both natural lifetimes under ambient conditions and engineered lifetimes under control protocols. Whats more, the naming conventions are often used interchangeably. In the following, we provide an overview of these different regimes and associated nomenclature, with the goal of clarifying this complex landscape.</p>
 
 <h4>$T_1$, The Spin-Lattice Relaxation Time</h4>
+
+  <figure id="Coherence_Times_Fig_6">
+  <img src="./Figs/Fig_6/Fig_6a.gif" 
+       alt="T1" 
+       id="T1_GIF">
+  
+<table class="figure_controls">
+  <tr>
+  <td>Sample: </td><td><select id="Coherence_Time_selector" onchange="update_Figure_6()">
+    <option value="Fig_6a.gif" selected="selected">Longitudinal Relaxation, T1</option>
+    <option value="Fig_6b/Fig_6b.gif"> Transverse Relaxation, T2</option>
+    <option value="Fig_6c/Fig_6c.gif"> Inhomogeneous Broadening, T2*</option>
+  </select></td>
+    </tr>
+</table>
+ 
+  <figcaption>
+    Coherence Times
+  </figcaption>
+
+</figure><p></p>
 
 <p>If a two-level system is prepared in one of its eigenstates, $|0\rangle$, or $|1\rangle$, the spin-lattice relaxation time, $T_1$, characterises how long it takes for the system to return to thermal equilibrium. In any real system, $|0\rangle$ and $|1\rangle$ are not perfectly isolated from their surroundings. They exchange energy with the environment, or bath, via photons, phonons, and local fluctuating fields. The strength of this exchange determines how quickly information on the state of the two level system is lost, and defines the $T_1$ decay rate. These interactions are thermal, non radiative processes, and so $T_1$ is also referred to as "thermal relaxation", or "longitudinal relaxation". It is a natural characteristic of the quantum system under investigation, and as $|0\rangle$ and $|1\rangle$ are energy eigenstates, $T_1$ effectively places an upper bound on the coherence time. This means $T_1$ sets the maximum time available for coherent control of a two level system, making it a central metric in the comparison of different quantum systems. Note that in many works, the spin lock lifetime is described using $T_{1, \rho}$. This lifetime is distinct from $T_1$. Its use reflects the long lifetimes achieved by the engineered spin lock eigenstate. Despite comparable lifetimes using the engineered CCD eigenstates, the label $T_1$ is not normally used to describe CCD lifetime. </p>
 
