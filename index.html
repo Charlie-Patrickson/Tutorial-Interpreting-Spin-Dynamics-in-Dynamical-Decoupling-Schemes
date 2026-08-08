@@ -103,11 +103,11 @@ Introduction
 <table class="figure_controls">
  <tr>
  <td>Sample: </td><td><select id="eigenstate_selector" onchange="update_Figure_1()">
-  <option value="Fig_1a/Fig_1a.gif" selected="selected">H = Ω σ_z, S_i = (0, 0, 1)</option>
-  <option value="Fig_1b/Fig_1b.gif">H = Ω σ_y, S_i = (0, 0, 1)</option>
-  <option value="Fig_1c/Fig_1c.gif">H = Ω σ_x, S_i = (0, 0, 1)</option>
-  <option value="Fig_1e/Fig_1e.gif">H = Ω σ_z, S_i = (0, 1, 0)</option>
-  <option value="Fig_1f/Fig_1f.gif">H = Ω σ_z, S_i = (1, 0, 0)</option>
+  <option value="Fig_1a/Fig_1a.gif" selected="selected">Fig. 1(a) H = Ω σ_z, S_i = (0, 0, 1)</option>
+  <option value="Fig_1b/Fig_1b.gif">Fig. 1(b) H = Ω σ_y, S_i = (0, 0, 1)</option>
+  <option value="Fig_1c/Fig_1c.gif">Fig. 1(c) H = Ω σ_x, S_i = (0, 0, 1)</option>
+  <option value="Fig_1e/Fig_1e.gif">Fig. 1(d) H = Ω σ_z, S_i = (0, 1, 0)</option>
+  <option value="Fig_1f/Fig_1f.gif">Fig. 1(e) H = Ω σ_z, S_i = (1, 0, 0)</option>
  </select></td>
   </tr>
 </table>
@@ -123,7 +123,7 @@ Introduction
 
 <p>Throughout this tutorial we will use the Bloch sphere to represent the state of a two-level system. To understand it, we first define the two-level system $|\Psi\rangle$ and its constituent levels, $|0\rangle$ and $|1\rangle$. The states $|0\rangle$ and $|1\rangle$ are separated in energy by $\hbar\omega_0$. We choose $\hbar=1$ in the Hamiltonians presented later in the tutorial, corresponding to units of angular frequency rather than energy. $|\Psi\rangle$ can occupy $|0\rangle$, $|1\rangle$, or a superposition of the two, $Z_0|0\rangle + Z_1|1\rangle$. Here, $Z_{0,1}$ are complex probability amplitudes, $Z_{0,1} = |Z_{0,1}|e^{i\phi_{0,1}}$ that encode the level's phase, $\phi_{0,1}$, and magnitude, $|Z_{0,1}|$. Quantum states are defined only up to a global phase: $|\Psi\rangle$ and $e^{i\phi_0}|\Psi\rangle$ represent the same physical state for any real $\phi_0$. This can be directly seen using the tools below, as $\phi_0$ leaves the Bloch sphere dynamics unchanged. For clarity, we thus use the relative phase $\phi = \phi_1 - \phi_0$ between $|0\rangle$ and $|1\rangle$ to write an arbitrary quantum state as $|\Psi\rangle = |Z_0||0\rangle + |Z_1|e^{i\phi}|1\rangle$. Additionally, as a two-level system, the probability of a measurement on $|\Psi\rangle$ returning either $|0\rangle$ or $|1\rangle$ must be unity, so that $\langle\Psi|\Psi\rangle = |Z_0|^2 + |Z_1|^2 = 1$. This equation describes a circle, such that the angle $\theta$ between $|Z_0|$ and $|Z_1|$ is the relative population of $|0\rangle$ and $|1\rangle$ at any point in time. With $\phi$ and $\theta$ being two angles, they define a unit sphere. Each point on this sphere uniquely specifies a quantum state $|\Psi\rangle$; the azimuthal angle $\phi$, encodes the relative phase between $|0\rangle$ and $|1\rangle$, and the polar angle $\theta$, encodes their relative populations. Using these definitions we can write the state of a two-level system as $|\Psi\rangle = \cos{\frac{\theta}{2}} |0\rangle + \sin{\frac{\theta}{2}}e^{i \phi} |1\rangle$, where $Z_0 = \cos{\frac{\theta}{2}}$ and $Z_1 = \sin{\frac{\theta}{2}}e^{i \phi}$. Certain values of $\theta$ and $\phi$ represent important states used throughout this tutorial, and more broadly across quantum technologies. We have already seen that $\theta=0, \pi$ describe $|0\rangle$ and $|1\rangle$, respectively. Similarly, $\theta=\pi/2$ and $\phi = 0, \pi$ describe the states $|+\rangle$ and $|-\rangle$, respectively, whilst $\theta=\pi/2$ and $\phi = \pi/2, 3\pi/2$ describe $|i\rangle$ and $|-i\rangle$, respectively (see Fig.1(a)). </p>
 
-<p>The ability to arbitrarily locate and retain any state $|\Psi\rangle$ on this sphere underpins advanced quantum protocols. To visualise this process, $|\Psi\rangle$ can be re-expressed as the Bloch vector $S$, running from the sphere's origin to a point on the surface. We can use the above definitions of $\theta$ and $\phi$ to define $S}$ in spherical coordinates, so that $S = \{ \sin{\theta}\cos{\phi}, \sin{\theta}\sin{\phi}, \cos{\theta} \}$. Proposed control schemes aim to manipulate $S$ (and equivalently $|\Psi\rangle$) as a function of time and can be understood using the equation of motion (see Sec. \ 7 for damping effects, bold indicates vectors)
+<p>The ability to arbitrarily locate and retain any state $|\Psi\rangle$ on this sphere underpins advanced quantum protocols. To visualise this process, $|\Psi\rangle$ can be re-expressed as the Bloch vector $S$, running from the sphere's origin to a point on the surface. We can use the above definitions of $\theta$ and $\phi$ to define $S$ in spherical coordinates, so that $S = \{ \sin{\theta}\cos{\phi}, \sin{\theta}\sin{\phi}, \cos{\theta} \}$. Proposed control schemes aim to manipulate $S$ (and equivalently $|\Psi\rangle$) as a function of time and can be understood using the equation of motion (see Sec. \ 7 for damping effects, bold indicates vectors)
 
 \begin{equation}{\label{Eq_of_motion}}
   {\dot{S}} = {\Omega_{eff}}(t)\times {S}.  
