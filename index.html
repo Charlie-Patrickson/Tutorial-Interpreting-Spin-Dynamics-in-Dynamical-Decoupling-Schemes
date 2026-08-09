@@ -88,7 +88,7 @@ The real text begins here.
 </noscript>
 
 <h3>
-Introduction
+1. Introduction
 </h3>
  
 <p>Quantum technologies are reaching a critical point in their development, delivering diverse innovations across sensing, computation and communications, with recent breakthroughs claiming quantum advantage in navigation, boson sampling and secure communications. There is a wide range of physical systems underlying these advances, including superconducting circuits, trapped ions, neutral atoms, photons, solid state defects, mechanical resonators, and quantum dots. Nevertheless, every architecture is susceptible to detrimental environmental interactions. The system's resilience against these interactions depends mainly on the operating temperature, coupling strength, and energy of the quantum system. In some cases, additional resilience can also be engineered by delivering fast, precise modulations to a quantum state that act before environmental perturbations take effect. This is the essential idea behind ``dynamical decoupling'' protocols. These techniques have found application across the quantum technologies remit because they are, to a large extent, agnostic of the particular environmental interaction. For example, the associated extended coherence times are routinely leveraged in quantum dots, solid state spin defect, superconducting and trapped-ion platforms. By using dynamical decoupling to align the operating frequencies of two or more qubits, entanglement operations have been realised using superconducting resonators, trapped ions, solid state defects, mechanical resonators, and semiconductor quantum dots. Furthermore, extended quantum lifetimes and frequency selective detection are foundational principles in colour-centre based quantum sensors. In essence, dynamical decoupling techniques represent an exceptionally versatile, and powerful framework for providing improved performance and additional functionality. </p>
@@ -117,10 +117,8 @@ Introduction
  </figcaption>
 </figure><p></p>
 
-
-<h3>The Bloch Sphere Representation of a Two-Level System</h3>
-
-
+<h3>2. The Bloch Sphere Representation of a Two-Level System</h3>
+ 
 <p>Throughout this tutorial we will use the Bloch sphere to represent the state of a two-level system. To understand it, we first define the two-level system $|\Psi\rangle$ and its constituent levels, $|0\rangle$ and $|1\rangle$. The states $|0\rangle$ and $|1\rangle$ are separated in energy by $\hbar\omega_0$. We choose $\hbar=1$ in the Hamiltonians presented later in the tutorial, corresponding to units of angular frequency rather than energy. $|\Psi\rangle$ can occupy $|0\rangle$, $|1\rangle$, or a superposition of the two, $Z_0|0\rangle + Z_1|1\rangle$. Here, $Z_{0,1}$ are complex probability amplitudes, $Z_{0,1} = |Z_{0,1}|e^{i\phi_{0,1}}$ that encode the level's phase, $\phi_{0,1}$, and magnitude, $|Z_{0,1}|$. Quantum states are defined only up to a global phase: $|\Psi\rangle$ and $e^{i\phi_0}|\Psi\rangle$ represent the same physical state for any real $\phi_0$. This can be directly seen using the tools below, as $\phi_0$ leaves the Bloch sphere dynamics unchanged. For clarity, we thus use the relative phase $\phi = \phi_1 - \phi_0$ between $|0\rangle$ and $|1\rangle$ to write an arbitrary quantum state as $|\Psi\rangle = |Z_0||0\rangle + |Z_1|e^{i\phi}|1\rangle$. Additionally, as a two-level system, the probability of a measurement on $|\Psi\rangle$ returning either $|0\rangle$ or $|1\rangle$ must be unity, so that $\langle\Psi|\Psi\rangle = |Z_0|^2 + |Z_1|^2 = 1$. This equation describes a circle, such that the angle $\theta$ between $|Z_0|$ and $|Z_1|$ is the relative population of $|0\rangle$ and $|1\rangle$ at any point in time. With $\phi$ and $\theta$ being two angles, they define a unit sphere. Each point on this sphere uniquely specifies a quantum state $|\Psi\rangle$; the azimuthal angle $\phi$, encodes the relative phase between $|0\rangle$ and $|1\rangle$, and the polar angle $\theta$, encodes their relative populations. Using these definitions we can write the state of a two-level system as $|\Psi\rangle = \cos{\frac{\theta}{2}} |0\rangle + \sin{\frac{\theta}{2}}e^{i \phi} |1\rangle$, where $Z_0 = \cos{\frac{\theta}{2}}$ and $Z_1 = \sin{\frac{\theta}{2}}e^{i \phi}$. Certain values of $\theta$ and $\phi$ represent important states used throughout this tutorial, and more broadly across quantum technologies. We have already seen that $\theta=0, \pi$ describe $|0\rangle$ and $|1\rangle$, respectively. Similarly, $\theta=\pi/2$ and $\phi = 0, \pi$ describe the states $|+\rangle$ and $|-\rangle$, respectively, whilst $\theta=\pi/2$ and $\phi = \pi/2, 3\pi/2$ describe $|i\rangle$ and $|-i\rangle$, respectively (see Fig.1(a)). </p>
 
 <p>The ability to arbitrarily locate and retain any state $|\Psi\rangle$ on this sphere underpins advanced quantum protocols. To visualise this process, $|\Psi\rangle$ can be re-expressed as the Bloch vector $S$, running from the sphere's origin to a point on the surface. We can use the above definitions of $\theta$ and $\phi$ to define $S$ in spherical coordinates, so that $S = \{ \sin{\theta}\cos{\phi}, \sin{\theta}\sin{\phi}, \cos{\theta} \}$. Proposed control schemes aim to manipulate $S$ (and equivalently $|\Psi\rangle$) as a function of time and can be understood using the equation of motion (see Sec. \ 7 for damping effects, bold indicates vectors)
@@ -137,7 +135,7 @@ Introduction
 
 <p>Crucially, all two-level systems undergo Bloch precession; any attempt to manipulate the Bloch vector must operate coherently with this ubiquitous rotation. Attempting to use a constant amplitude (DC) field for the drive, $H_{Drive} = \Omega \sigma_{x}$ (equiv. $\Omega_{Drive} = \Omega\hat{x}$) tilts the precession axis, so that $\Omega_{\mathrm{eff}} = \Omega_0 + \Omega_{Drive} = \omega_0 \hat{z} + \Omega\hat{x}$. This can lead to state mixing, resulting in complex dynamics. Instead, coherent control is achieved using oscillatory fields.</p>
 
-<h4>Rabi Oscillations</h4>
+<h4>3. Rabi Oscillations</h4>
 <p>A Rabi oscillation uses an oscillating (AC) field to continuously drive a transition between $|0\rangle$ and $|1\rangle$. The time it takes to drive one complete cycle from $|0\rangle \rightarrow |1\rangle \rightarrow |0\rangle$ defines the Rabi frequency, $\Omega$. This forms the bedrock of all coherent control schemes; precise measurement of the Rabi frequency informs the experimentalist how long to apply a control field for to achieve a given rotation of the Bloch vector. In most systems the Rabi frequency is linearly dependent on the amplitude of the driving field; characterising this relationship forms an essential calibration step. </p>
 
 <p>As can be seen from Eq.~\  1, driving a coherent rotation of the Bloch vector $S$ requires $|\dot{S}| > 0$. Maintaining this condition whilst the system undergoes Bloch precession requires an AC drive, and is fulfilled by $H_{Rabi} = \Omega \cos(\omega t) \sigma_{x}$ (equiv. $\Omega_{Rabi} = \Omega \cos(\omega t) \hat{x}$ in the Bloch representation). This is achieved by resonantly matching the drive frequency with the Bloch precession, $\omega = \omega_0$, where $\Omega_{Rabi}$ is phase-locked with the precessing Bloch vector $S$. This fulfills the $|\dot{S}| > 0$ requirement, so that the effective field $\Omega_{Rabi}$ nudges the Bloch vector across the Bloch sphere with each $\omega$ period.</p>
@@ -148,7 +146,7 @@ Introduction
     alt="Rabi Oscillation"
     id="rabi_oscillation_image">
  <figcaption>
-  Rabi oscillation under driven spin dynamics.
+  Fig 2. Rabi oscillation under driven spin dynamics.
  </figcaption>
 
 </figure><p></p>
@@ -164,13 +162,13 @@ Introduction
   &=\tfrac{1}{2}\Omega \sigma_x^{\prime},
 \end{align}
 
-where primes describe operators in the rotating frame. Furthermore, we have applied the rotating wave approximation, so that fast terms oscillating at $2\omega_0$ are disregarded, and have assumed that the Rabi drive frequency matches the Bloch precession frequency, $\omega_0$. A complete derivation is included in Supplementary Note 1. Here the Bloch precession term $H_0 = \tfrac{1}{2}\omega_0 \sigma_z$ is compensated by the rotating frame, and $H_{Rabi} = \Omega \cos(\omega_0t) \sigma_x$ reduces to a constant element $H_{Rabi}^{\prime} = \tfrac{1}{2}\Omega \sigma_x$. Returning to the Bloch sphere representation, this corresponds to an effective field along $x^{\prime}$, so that $\Omega_{\mathrm{eff}}^{\prime} = \Omega_{Rabi}^{\prime} = \tfrac{1}{2}\Omega \hat{x}^{\prime}$. </p>
+where primes describe operators in the rotating frame. Furthermore, we have applied the rotating wave approximation, so that fast terms oscillating at $2\omega_0$ are disregarded, and have assumed that the Rabi drive frequency matches the Bloch precession frequency, $\omega_0$. A complete derivation is included in Appendix 1. Here the Bloch precession term $H_0 = \tfrac{1}{2}\omega_0 \sigma_z$ is compensated by the rotating frame, and $H_{Rabi} = \Omega \cos(\omega_0t) \sigma_x$ reduces to a constant element $H_{Rabi}^{\prime} = \tfrac{1}{2}\Omega \sigma_x$. Returning to the Bloch sphere representation, this corresponds to an effective field along $x^{\prime}$, so that $\Omega_{\mathrm{eff}}^{\prime} = \Omega_{Rabi}^{\prime} = \tfrac{1}{2}\Omega \hat{x}^{\prime}$. </p>
 
 <p>To calculate the Bloch dynamics in this reference frame, the initial Bloch state must also undergo the transformation. However, in this case, it remains unchanged $|\Psi_i\rangle^{\prime} = U|\Psi\rangle $$= |\Psi_i\rangle = |0\rangle$, so $S_i^{\prime} = \left (0, 0, 1 \right) = \hat{z}^{\prime}$ on the Bloch sphere. In the left panel of Fig. 2(b) we plot the $z$-component of the Bloch vector in this frame, $S_z^{\prime}$, as a function of time (see also Supplementary movie 6, bottom panel). In the absence of the Bloch precession term, $\Omega_{\mathrm{eff}}^{\prime}$ drives a coherent rotation around the $x^{\prime}$ axis, effectively reconstructing the two-level dynamics presented above in Fig. 2(a). An expanded view of the highlighted region is presented in the lower right panel, with the corresponding DC drive field $\Omega_{\mathrm{eff}}^{\prime}$ plotted in the upper panel. Here the modulation evident in Fig. 2(a) is absent. This is a consequence of removing the time dependence in $\Omega_{\mathrm{eff}}^{\prime}$ via the rotating wave approximation.</p>
 
 <p>Whilst the Rabi oscillation is designed to continuously drive the two-level system between $|0\rangle \leftrightarrow|1\rangle$, many advanced quantum protocols use pulses to apply targeted rotations to the Bloch vector. These pulses are typically described by the angle and axis of rotation on the Bloch sphere; a rotation around the $x$-axis by an angle of $\pi$ is a $\pi_x$-pulse, a rotation around the $y$-axis by an angle of $\pi/2$ is a $\pi_y/2$-pulse (see right inset of Fig. 2(b) for an example $\pi_x/2$-pulse).</p>
 
-<h4>Ramsey Interferometry</h4>
+<h4>4. Ramsey Interferometry</h4>
 
 <figure id="Ramsey_Fig_3">
  <img src="./Figs/Fig_3/Fig_3a.gif" 
@@ -180,14 +178,14 @@ where primes describe operators in the rotating frame. Furthermore, we have appl
 <table class="figure_controls">
  <tr>
  <td>Sample: </td><td><select id="ramsey_selector" onchange="update_Figure_3()">
-  <option value="Fig_3a.gif" selected="selected">Resonant Ramsey measurement</option>
-  <option value="Fig_3c/Fig_3c.gif"> Noisy Ramsey measurement</option>
+  <option value="Fig_3a.gif" selected="selected">Fig. 3(a) Resonant Ramsey measurement</option>
+  <option value="Fig_3c/Fig_3c.gif"> Fig. 3(b) Noisy Ramsey measurement</option>
  </select></td>
   </tr>
 </table>
  
  <figcaption>
-  Ramsey measurement
+  Fig. 3 Ramsey Interferometry
  </figcaption>
 
 </figure><p></p>
@@ -198,17 +196,17 @@ where primes describe operators in the rotating frame. Furthermore, we have appl
 
 <p>In Fig. 3(b) we repeat the analysis in a rotating reference frame that tracks with the Bloch precession, $\Omega_0 = \tfrac{1}{2}\omega_0 \hat{z}$ (see also Supplementary movie 7, lower panel). The rotating frame Hamiltonian is $H^{\prime} = \tfrac{1}{2}\Omega(t) \sigma_x^{\prime}$ (equiv. $\Omega_{\mathrm{eff}}^{\prime} = \Omega_{Ramsey}^{\prime}= \tfrac{1}{2}\Omega(t) \hat{x}^{\prime}$) whilst the pulse and delay timings remain unchanged from the lab frame. The upper panel plots the $x^{\prime}$ component of the rotating frame drive field $\Omega_{Ramsey}^{\prime}$ as a function of time, whilst the lower panel plots the rotating frame $z^{\prime}$ component of the Bloch vector, $S_z^{\prime}$. Under a resonant drive field, where $\omega = \omega_0$, the Bloch vector remains static during the delay period $\tau$. This is evidenced on the inset Bloch spheres, and is a consequence of the reference frame being phase locked with the Bloch precession.</p>
 
-<p>If $\omega \neq \omega_0$ the Bloch vector dynamics are altered and depend on the frequency mismatch, or detuning, $\Delta = \omega - \omega_0$. This can be used to measure the Bloch precession frequency, $\omega_0$, as the drive frequency $\omega$ is typically a robust experimental quantity precisely controlled by the observer. To demonstrate this effect we introduce a detuned $\pi_x/2$-pulse in Fig. 3(a), plotted in dashed grey. The pulse slowly loses phase coherence with the $\omega = \omega_0$ resonant blue drive. Notably, when the detuned drive switches back on for the second pulse, it is no longer perpendicular to the Bloch vector, and therefore does not drive a complete $\pi_x/2$-pulse (see Fig. 3(c), purple). To interpret these dynamics we consider a reference frame defined with respect to the drive frequency $\omega$, as it represents a well-defined experimental reference. This definition introduces an additional term, $H_{\Delta}^{\prime} = \tfrac{1}{2}(\omega_0 - \omega)\sigma_z^{\prime} = \tfrac{1}{2}\Delta\sigma_z^{\prime}$, to the rotating frame Hamiltonian, $H^{\prime}$ (see Supplementary Note 1 for the full derivation). The corresponding effective field is $\Omega_{\Delta}^{\prime} = (\omega_0 - \omega)\hat{z}^{\prime}= \tfrac{1}{2}\Delta\hat{z}^{\prime}$, so that a nonzero $\Omega_{\Delta}^{\prime}$ term produces an additional rotation around the $z^{\prime}$-axis, causing the reference frame to lose synchronisation with the Bloch precession.</p>
+<p>If $\omega \neq \omega_0$ the Bloch vector dynamics are altered and depend on the frequency mismatch, or detuning, $\Delta = \omega - \omega_0$. This can be used to measure the Bloch precession frequency, $\omega_0$, as the drive frequency $\omega$ is typically a robust experimental quantity precisely controlled by the observer. To demonstrate this effect we introduce a detuned $\pi_x/2$-pulse in Fig. 3(a), plotted in dashed grey. The pulse slowly loses phase coherence with the $\omega = \omega_0$ resonant blue drive. Notably, when the detuned drive switches back on for the second pulse, it is no longer perpendicular to the Bloch vector, and therefore does not drive a complete $\pi_x/2$-pulse (see Fig. 3(c), purple). To interpret these dynamics we consider a reference frame defined with respect to the drive frequency $\omega$, as it represents a well-defined experimental reference. This definition introduces an additional term, $H_{\Delta}^{\prime} = \tfrac{1}{2}(\omega_0 - \omega)\sigma_z^{\prime} = \tfrac{1}{2}\Delta\sigma_z^{\prime}$, to the rotating frame Hamiltonian, $H^{\prime}$ (see Appendix 1 for the full derivation). The corresponding effective field is $\Omega_{\Delta}^{\prime} = (\omega_0 - \omega)\hat{z}^{\prime}= \tfrac{1}{2}\Delta\hat{z}^{\prime}$, so that a nonzero $\Omega_{\Delta}^{\prime}$ term produces an additional rotation around the $z^{\prime}$-axis, causing the reference frame to lose synchronisation with the Bloch precession.</p>
 
 <p>To measure the detuning between the Bloch precession and the drive frequency,$\Delta$, we sweep the Ramsey delay time, $\tau$. The sequence is simulated with the rotating frame Hamiltonian, $H^{\prime} = H_{\Delta}^{\prime} + H_{Ramsey}^{\prime} = \tfrac{1}{2}(\omega_0 - \omega)\sigma_z^{\prime} + \tfrac{1}{2}\Omega(t) \sigma_x^{\prime}$ for a range of $\tau$ delay periods. The $S_x^{\prime}$ component of the Bloch vector is presented in the upper panel of Fig. 3(c) (see also Supplementary movie 8). The initial $\pi_x/2$-pulse rotates the Bloch vector from $|0\rangle \rightarrow |i\rangle$, or $S_i^{\prime}= \hat{z}^{\prime} \rightarrow S^{\prime} = \hat{y}^{\prime}$ on the Bloch sphere. During the $\tau$ delay period the Bloch vector rotates around the $z^{\prime}$-axis due to nonzero detuning, $\Omega_{\Delta}^{\prime} = \Delta\hat{z}^{\prime} \neq0$, shown on the inset Bloch sphere. This manifests as an oscillation in the $S_x^{\prime}$ component at the detuning frequency $\Delta$, representing an accumulation of phase difference between the Bloch vector and reference frame as $\tau$ is increased. The final $\pi_x/2$-pulse projects the $S_x^{\prime}$ component onto $S_z^{\prime}$, enabling the accumulated phase to be measured experimentally via the population. This is illustrated by the $S_z^{\prime}$ trajectory in the lower panel. </p>
 
 <p>Where the drive frequency $\omega$ represents a stable quantity, the Bloch precession frequency may fluctuate if the two-level system is exposed to noise. Potential sources include local magnetic fields in spin systems, such as other nearby spins, or fluctuating electric fields from laser noise in optical systems. This results in nonzero detuning, leading to uncontrolled rotations of the Bloch vector around the $z$-axis relative to the drive frequency. Notably, these noise sources can fluctuate on timescales shorter than a single measurement, so that each repeated measurement accumulates a different rotation, and therefore projects onto a different final $S_z$ value. Averaged over many measurements, this manifests as either a broadening of the probed precession frequency, or, equivalently, a decaying signal as the measurement duration increases. (see Sec. \ 7). </p>
  
-<h3>Pulsed Dynamical Decoupling Sequences</h3>
+<h3>5. Pulsed Dynamical Decoupling Sequences</h3>
 
 <p>Uncontrolled rotations of the Bloch vector, like those produced by a noisy $\Omega_{\Delta}^{\prime}$, can dramatically alter the intended outcome of a control sequence. Many schemes are designed to mitigate these effects, and fall under the description of dynamical decoupling techniques. This name reflects carefully optimised, dynamic rotations of the Bloch vector that are designed to decouple two-level systems from noise. In the following we provide an overview of some of the most common approaches. Note that the Bloch vector dynamics are all calculated in a reference frame that rotates around the $z$-axis, tracking the drive field frequency, $\omega$.</p>
 
-<h4>Hahn Echo</h4>
+<h4>5.1 Hahn Echo</h4>
 
 <figure id="Pulsed_DD_Fig_4">
  <img src="./Figs/Fig_4/Fig_4a.gif" 
@@ -218,14 +216,14 @@ where primes describe operators in the rotating frame. Furthermore, we have appl
 <table class="figure_controls">
  <tr>
  <td>Sample: </td><td><select id="Pulsed_DD_selector" onchange="update_Figure_4()">
-  <option value="Fig_4a.gif" selected="selected">Hahn_Echo</option>
-  <option value="Fig_4b/Fig_4b.gif"> CPMG</option>
+  <option value="Fig_4a.gif" selected="selected">Fig. 4(a) Hahn_Echo</option>
+  <option value="Fig_4b/Fig_4b.gif"> Fig. 4(b) CPMG</option>
  </select></td>
   </tr>
 </table>
  
  <figcaption>
-  Pulsed Dynamical Decoupling
+  Fig. 4 Pulsed Dynamical Decoupling
  </figcaption>
 
 </figure><p></p>
@@ -246,7 +244,7 @@ and choose a $\pi_x/2$-pulse ($\pi_y$-pulse) pulsewidth of $T = \frac{\pi}{2\Ome
 
 <p>The Hahn echo $S_{z}^{\prime}$ and $S_{x}^{\prime}$ Bloch vector components are plotted as a function of time in Fig. 4(b) and Fig. 4(c), respectively (see Supplementary movie 9 also). The initial $\pi_x/2$-pulse rotates the Bloch vectors from an initial state $|\Psi_i\rangle = |0\rangle$, or $S_i = \hat{z}$, to $|\Psi\rangle = |i\rangle$, or $S = \hat{y}$ on the Bloch sphere. During the first $\tau$ delay period $\dot{S}_{z,\ HE} = 0$, whilst $\dot{S}_{x,\ HE} \neq 0$ and the $S_{x,\ HE}^{\prime}$ components with different detunings diverge across the $x$-$y$ plane. This is illustrated on the left inset Bloch sphere, where we see that nonzero $\Omega_{\Delta}^{\prime}$ terms cause the Bloch vectors to fan out. The central $\pi_y$-pulse simultaneously inverts these $S_{x,\ HE}^{\prime}$ components, causing them to re-converge during the second $\tau$ delay period (see right inset Bloch sphere). Unlike the Ramsey sequence, this engineered refocusing of the Bloch vector effectively compensates the range of uncontrolled rotations. The final $\pi_x/2$ pulse projects the converged Bloch vectors onto the $z$-axis, where they complete the sequence in the target state $|\Psi_f\rangle^{\prime} = |1\rangle$, corresponding to $S_f^{\prime} = (0, 0, -1) = -\hat{z}^{\prime}$ in the Bloch representation. Note that for a resonant Hahn echo sequence where $\Omega_{\Delta}^{\prime} = 0$ (plotted in dark blue) $\dot{S} = 0$ during the central $\pi_y$-pulse. This is because after the initial $\pi_x/2$-pulse the Bloch vector lies on the $y$-axis parallel to the $\pi_y$-pulse, describing an eigenstate of the corresponding $\pi_y$ operation.</p>
  
-<h4>Carr-Purcell-Meiboom-Gill (CPMG)</h4>
+<h4>5.2 Carr-Purcell-Meiboom-Gill (CPMG)</h4>
 
 <p>It is desirable to prolong coherent control over the Bloch vector for as long as possible. Based on our noise model so far, this might appear achievable over extended timescales simply by increasing the $\tau$ delay period of the Hahn echo. That model treated the environmental interaction as static, producing a constant detuning $H^{\prime}_{\Delta}$ (equiv. $\Omega^{\prime}_{\Delta}}$) that drives the Bloch vector around the z-axis at a fixed rate. Under this assumption, the central $\pi_y$-pulse inverts the sign of the accumulated phase, so that the Bloch vector returns to its initial position regardless of $\tau$. However, the environment is rarely static. Stochastic interactions cause the precession frequency $\omega_0$ to fluctuate around its central value, so that $H^{\prime}_{\Delta}$ drifts over the course of a measurement. If this drift is appreciable over $\tau$, the phase accumulated before the $\pi_y$-pulse is no longer equal and opposite to that accumulated after it, and refocusing is incomplete. Extending $\tau$ therefore increases exposure to these fluctuations, causing a progressive loss of coherence (see Sec. \ 7.2). The CPMG sequence offers a solution to this problem, by replacing the single Hahn echo $\pi_y$-pulse with a train of $N$ equally spaced $\pi_y$-pulses. The total sequence length can be extended by adding additional $\pi_y$-pulses without needing to increase interpulse $\tau$ delay lengths. This means each sub-interval can minimise the timescale available for the Bloch vector to drift, enabling the following $\pi_y$-pulse to effectively refocus any phase accumulated. This allows the total interrogation time to be extended well beyond typical Hahn echo timescales, making it (and related pulse sequences) a foundational tool in quantum control and sensing.</p>
 
@@ -254,11 +252,11 @@ and choose a $\pi_x/2$-pulse ($\pi_y$-pulse) pulsewidth of $T = \frac{\pi}{2\Ome
 
 <p>In the lower panel of Fig. 4d) we plot the $S_x^{\prime}$ components of the CPMG sequence as a function of time (see Supplementary movie 10 also). Prior to each $\pi_y$-pulse the $S_x^{\prime}$ components scatter, describing a loss of phase coherence between the reference frame and Bloch precession. This is caused by the range of $(\omega_0 - \omega)\hat{z}^{\prime}$ detuning terms leading to different rotation speeds around the $z^{\prime}$-axis, causing the Bloch vectors to fan out in the $x^{\prime}$-$y^{\prime}$ plane. After each $\pi_y$-pulse, the Bloch vectors refocus towards the $y^{\prime}$-axis where $S_x^{\prime} = 0$, before scattering again prior to the next $\pi_y$-pulse, when the sequence repeats. This pattern is illustrated on the right inset Bloch sphere. Each $\pi_y$-pulse flips the scattering Bloch vectors to the far side of the Bloch sphere, where they reconverge on the $y^{\prime}$-axis and the sequence repeats. Note that the detuned drive field $\Omega_{CPMG}^{\prime}$ results in a slightly different trajectory following each $\pi_y$-pulses. Nevertheless, experimental demonstrations can often reach 100's of $\pi_y$-pulses, illustrating the robustness of the CPMG sequence. </p>
  
-<h3>Continuous Dynamical Decoupling Sequences</h3>
+<h3>6. Continuous Dynamical Decoupling Sequences</h3>
 
 <p>A wide range of pulsed dynamical decoupling techniques have been developed; however their ability to extend the coherence time of a two-level system is ultimately limited by the intrinsic lifetimes of the system (see Sec. \ 7), and long sequences place stringent demands on pulse area calibration. Continuous control schemes offer an alternative, where an uninterrupted control field is applied to continuously suppress dephasing of the Bloch vector. In the following section we introduce two variants, the spin-lock and continuous concatenated dynamical decoupling (CCDD). </p>
 
-<h4>The Spin-Lock Sequence</h4>
+<h4>6.1 The Spin-Lock Sequence</h4>
 
 <figure id="Continuous_DD_Fig_5">
  <img src="./Figs/Fig_5/Fig_5a.gif" 
@@ -268,15 +266,15 @@ and choose a $\pi_x/2$-pulse ($\pi_y$-pulse) pulsewidth of $T = \frac{\pi}{2\Ome
 <table class="figure_controls">
  <tr>
  <td>Sample: </td><td><select id="Continuous_DD_selector" onchange="update_Figure_5()">
-  <option value="Fig_5a.gif" selected="selected">Spin_Lock</option>
-  <option value="Fig_5b/Fig_5b.gif"> CCDD, First Rotating Frame</option>
-  <option value="Fig_5c/Fig_5c.gif"> CCDD, Second Rotating Frame</option>
+  <option value="Fig_5a.gif" selected="selected">Fig. 5(a) Spin_Lock</option>
+  <option value="Fig_5b/Fig_5b.gif"> Fig. 5(b) CCDD, First Rotating Frame</option>
+  <option value="Fig_5c/Fig_5c.gif"> Fig. 5(c) CCDD, Second Rotating Frame</option>
  </select></td>
   </tr>
 </table>
  
  <figcaption>
-  Continuous Dynamical Decoupling
+  Fig. 5 Continuous Dynamical Decoupling
  </figcaption>
 
 </figure><p></p>
@@ -291,11 +289,11 @@ After switching to the reference frame defined by $U = e^{i\tfrac{1}{2}\omega_0 
 \begin{align*}
 H_{SpinLock}^{\prime} = H_{\Delta}^{\prime} + H_{\pi_x/2}^{\prime}(t) + H_{y}^{\prime}(t)= \tfrac{1}{2}(\omega_0 - \omega)\sigma_z^{\prime} + \tfrac{1}{2}\Omega_{\pi/2}(t) \sigma_x^{\prime} + \tfrac{1}{2}\Omega_{y}(t) \sigma_y^{\prime},
 \end{align*}
-where the spin lock $H_{y}(t)$ field now acts along the $y^{\prime}$-axis due to the relative phases of $H_{y}(t)$ and the reference frame (a full derivation is provided in Supplementary Note 1). The pulse sequence is illustrated in Fig. 5 (a), where we plot $\Omega_{\pi/2}^{\prime}(t)$ and $\Omega_{y}^{\prime}(t)$ as a function of time. During the $\pi_x/2$ pulses $\Omega_{\pi/2}(t) = \Omega$ for a pulsewidth of $T = \frac{\pi}{2\Omega}$, with $\Omega_{\pi/2}(t) = 0$ otherwise. Conversely, $\Omega_{y}(t) = \Omega$ in between the $\pi_x/2$-pulses, and $\Omega_{y}(t) = 0$ during $\pi_x/2$-pulses.</p>
+where the spin lock $H_{y}(t)$ field now acts along the $y^{\prime}$-axis due to the relative phases of $H_{y}(t)$ and the reference frame (a full derivation is provided in Appendix 1). The pulse sequence is illustrated in Fig. 5 (a), where we plot $\Omega_{\pi/2}^{\prime}(t)$ and $\Omega_{y}^{\prime}(t)$ as a function of time. During the $\pi_x/2$ pulses $\Omega_{\pi/2}(t) = \Omega$ for a pulsewidth of $T = \frac{\pi}{2\Omega}$, with $\Omega_{\pi/2}(t) = 0$ otherwise. Conversely, $\Omega_{y}(t) = \Omega$ in between the $\pi_x/2$-pulses, and $\Omega_{y}(t) = 0$ during $\pi_x/2$-pulses.</p>
  
 <p>The corresponding $S_z^{\prime}$ Bloch vector dynamics are presented in Fig. 5 (b) (see Supplementary movie 11 also). We consider the effect of two drive fields, one that is resonant ($\omega = \omega_0$) and one that is detuned ($\omega \neq \omega_0$) from the Bloch precession. The first $\pi_x/2$-pulse places the Bloch vector in the $x^{\prime}$-$y^{\prime}$ plane, where $S_z^{\prime} = 0$. The spin lock field $\Omega_{y}^{\prime}$ then locks the system to the $y^{\prime}$-axis. For the detuned drive field, the locking axis is slightly tilted towards $-\hat{z}$ by $ \Omega_{\Delta} = \tfrac{1}{2}(\omega_0 - \omega)\hat{z}$. This is illustrated on the left inset Bloch sphere. The spin lock field $\Omega_{y}^{\prime}$ keeps both the resonant and detuned Bloch vectors local to the $y^{\prime}$-axis, so that the final $\pi_x/2$-pulse effectively projects both systems onto -$\hat{z}$. This is illustrated on the right inset Bloch sphere. Note that the $\Omega_{y}^{\prime}$ rotation must be faster than the detuning rate $\omega_0 - \omega$ to keep the Bloch vector locked to the $y^{\prime}$-axis. Finally, whilst the spin lock sequence is effective at pinning the Bloch vector to a single axis of the Bloch sphere, the state cannot vary, which limits the versatility of the technique. </p>
 
-<h4>Continuous Concatenated Dynamical Decoupling (CCDD)</h4>
+<h4>6.2 Continuous Concatenated Dynamical Decoupling (CCDD)</h4>
 
 <p>Where the spin-lock pins the Bloch precession to the drive frequency, $\omega$, continuous concatenated dynamical decoupling schemes pin the Bloch vector to a Rabi frequency, $\Omega$. This means CCDD schemes operate similarly to a Rabi oscillation, continuously driving the system between $|0\rangle \leftrightarrow |1\rangle$. The locked Rabi frequency enables precise control of the Bloch vector with dramatically enhanced coherence times, and has been leveraged in high fidelity control schemes, a suite of quantum sensing applications, and for multipartite entangling operations.</p>
 
@@ -336,11 +334,11 @@ and,
 
 <p>These dynamics are also captured in the second reference frame that rotates with the Rabi oscillation defined by $\tfrac{1}{2}\omega_m\hat{x^\prime}$. In Fig. 5 (f) we compare the $S_z^{\prime\prime}$ Bloch components for three conditions in this frame (see Supplementary movie 13 also). First, a CCDD drive resonant with both the Bloch precession and Rabi frequency, $\omega = \omega_0$, $\omega_m = \Omega$, represents the target interaction. This is described by the effective field, $\Omega_{res}^{\prime \prime} = \tfrac{1}{2} \epsilon_m \hat{z}^{\prime \prime}$. As the Bloch vector is initialised to $S_i^{\prime \prime} = (0, 0, 1) = \hat{z}^{\prime \prime}$, $\dot{S^{\prime \prime}} = 0$, and $S_i^{\prime \prime}$ represents an eigenstate of $\Omega_{res}^{\prime \prime}$ (inset Bloch spheres, blue). We compare the same two imperfect CCDD drives from Figs. 5  (c) - (e). The detuned Rabi frequency condition $\omega = \omega_0$, $\omega_m \neq \Omega$, changes the $\Omega_{res}^{\prime \prime}$ axis so that it tilts towards the $x^{\prime \prime}$-axis, $\Omega_{\mathrm{eff}}^{\prime \prime} = \tfrac{1}{2}(\Omega - \omega_m)\hat{x}^{\prime \prime} + \tfrac{1}{2}\epsilon_m \hat{z}^{\prime \prime}$ (inset Bloch spheres, yellow). This causes the Bloch vector to precess around the new $\Omega_{\mathrm{eff}}^{\prime \prime}$ axis, producing a small $S_z^{\prime \prime}$ modulation relative to the target trajectory. Note that if $\epsilon_m \gg |(\Omega - \omega_m)|$ then this represents a small perturbation. A detuned Bloch precession $\omega \neq \omega_0$, $\omega_m = \Omega$ introduces two oscillating components into the reference frame (see Supplementary Information note 2 for the derivation), so that $\Omega_{\mathrm{eff}}^{\prime \prime} = \tfrac{1}{2}\epsilon_m \hat{z}^{\prime \prime} + \tfrac{1}{2}(\omega-\omega_0)\left(\sin(\omega_mt)\hat{y}^{\prime \prime} + \tfrac{1}{2}\cos(\omega_mt)\hat{z}^{\prime \prime}\right)$. If $\epsilon_m \not\approx \omega_m$, then these perturbations act incoherently on the Bloch vector, simply causing it to oscillate back and forth around $\tfrac{1}{2}\epsilon_m \hat{z}^{\prime \prime}$ (inset Bloch spheres, orange). These conditions have been shown to be forgiving experimentally, making CCDD remarkably robust to inhomogeneous broadening.</p>
  
-<h3>Coherence Times</h3>
+<h3>7. Coherence Times</h3>
 
 <p>A two-level system will lose information about its state over time due to interactions with its environment. This can be understood directly from the Bloch vector, which encodes two types of information: its projection along the $z$-axis, which represents the population of the two energy levels, and its projection in the $x$-$y$ plane, which represents the phase coherence between them. Environmental interactions degrade these two types of information in different ways, leading to three commonly used coherence times.</p>
 
-<h4>Longitudinal Relaxation Time, $T_1$</h4>
+<h4>7.1 Longitudinal Relaxation Time, $T_1$</h4>
 
  <figure id="Coherence_Times_Fig_6">
  <img src="./Figs/Fig_6/Fig_6a.gif" 
@@ -350,15 +348,15 @@ and,
 <table class="figure_controls">
  <tr>
  <td>Sample: </td><td><select id="Coherence_Time_selector" onchange="update_Figure_6()">
-  <option value="Fig_6a.gif" selected="selected">Longitudinal Relaxation, T1</option>
-  <option value="Fig_6b/Fig_6b.gif"> Transverse Relaxation, T2</option>
-  <option value="Fig_6c/Fig_6c.gif"> Inhomogeneous Broadening, T2*</option>
+  <option value="Fig_6a.gif" selected="selected">Fig. 6(a) Longitudinal Relaxation, T1</option>
+  <option value="Fig_6b/Fig_6b.gif"> Fig. 6(b) Transverse Relaxation, T2</option>
+  <option value="Fig_6c/Fig_6c.gif"> Fig. 6(c) Inhomogeneous Broadening, T2*</option>
  </select></td>
   </tr>
 </table>
  
  <figcaption>
-  Coherence Times
+  Fig. 6 Coherence Times
  </figcaption>
 
 </figure><p></p>
@@ -367,40 +365,61 @@ and,
 
 <p>The effects of $T_2$ dephasing can be observed during the $\tau$ delay period of a Ramsey pulse sequence. To demonstrate this we use the same rotating frame Ramsey Hamiltonian as Fig. 3, $H^{\prime} = H_{Ramsey}^{\prime} = \tfrac{1}{2}\Omega(t) \sigma_x^{\prime}$, but choose a resonant drive so that $H_{\Delta}^{\prime} = \tfrac{1}{2}(\omega_0 - \omega)\sigma_z = 0$. $T_2$ dephasing is introduced using a Lindbladian operator that causes exponential decay of the Bloch vector in the $x^\prime$-$y^\prime$ plane, describing an irreversible exchange of phase information with the environment. The effect is illustrated in Fig. 6 (b), where we plot the $S_y^{\prime}$ component of the Bloch vector in the lower panel and the corresponding $H_{Ramsey}$ Ramsey pulse sequence in the upper panel (see also Supplementary movie 15). Following the initial $\pi_x/2$-pulse, the $S_y^{\prime}$ Bloch vector component decays exponentially. This trajectory is illustrated on the inset Bloch sphere, where the Bloch vector slowly decays towards the origin where all phase information is lost. Note, this simulation neglects $T_1$ relaxation, and only captures coherence loss from pure dephasing. In practice, $T_2$ dephasing has contributions from both irreversible phase noise and the population relaxation described by $T_1$, and so the two timescales are not independent. In general, $T_2\leq2T_1$, with equality approached only when decoherence is dominated by energy exchange with the environment and there is negligible pure dephasing. Finally we note that $T_2$ relaxation is only applicable to single two-level systems. The dephasing rate for an ensemble is described by inhomogeneous broadening, $T_2^*$.</p>
 
-<h4>Transverse Relaxation Time, $T_2$</h4>
+<h4>7.2 Transverse Relaxation Time, $T_2$</h4>
 
 <p>The $T_2$ time describes the loss of information about the phase of a quantum superposition. It originates from complex interactions that couple the system to the local environment, and renders the Bloch vector's trajectory in the $x$-$y$ plane unresolvable. On the Bloch sphere, this appears as a gradual shrinking of the Bloch vector in the $x$-$y$ plane towards the origin.</p>
 
 <p>The effects of $T_2$ dephasing can be observed during the $\tau$ delay period of a Ramsey pulse sequence. To demonstrate this we use the same rotating frame Ramsey Hamiltonian as Fig. 3, $H^{\prime} = H_{Ramsey}^{\prime} = \tfrac{1}{2}\Omega(t) \sigma_x^{\prime}$, but choose a resonant drive so that $H_{\Delta}^{\prime} = \tfrac{1}{2}(\omega_0 - \omega)\sigma_z = 0$. $T_2$ dephasing is introduced using a Lindbladian operator that causes exponential decay of the Bloch vector in the $x^\prime$-$y^\prime$ plane, describing an irreversible exchange of phase information with the environment. The effect is illustrated in Fig. 6 (b), where we plot the $S_y^{\prime}$ component of the Bloch vector in the lower panel and the corresponding $H_{Ramsey}$ Ramsey pulse sequence in the upper panel (see also Supplementary movie 15). Following the initial $\pi_x/2$-pulse, the $S_y^{\prime}$ Bloch vector component decays exponentially. This trajectory is illustrated on the inset Bloch sphere, where the Bloch vector slowly decays towards the origin where all phase information is lost. Note, this simulation neglects $T_1$ relaxation, and only captures coherence loss from pure dephasing. In practice, $T_2$ dephasing has contributions from both irreversible phase noise and the population relaxation described by $T_1$, and so the two timescales are not independent. In general, $T_2\leq2T_1$, with equality approached only when decoherence is dominated by energy exchange with the environment and there is negligible pure dephasing. Finally we note that $T_2$ relaxation is only applicable to single two-level systems. The dephasing rate for an ensemble is described by inhomogeneous broadening, $T_2^*$.</p>
 
-<h4>Inhomogeneous Broadening, $T_2^*$</h4>
+<h4>7.3 Inhomogeneous Broadening, $T_2^*$</h4>
 
 <p>The $T_2^\star$ time describes dephasing that arises from averaging over many realisations of a two-level system. These realisations can be an ensemble of physically distinct systems, or a single system probed repeatedly over time, in which case slow drifts in the local environment play the role of inhomogeneity. In either case, each realisation evolves at a slightly different frequency, causing the average coherence to decay faster than that of any individual system. In the Bloch representation, the vectors describing each two-level system spread out across the $x$-$y$ plane, so that applying an effective field along a single axis will induce different vector rotations across the ensemble. Consequently an average Bloch vector describing the ensemble-averaged state will converge towards the centre of the Bloch sphere, representing an incoherent mixture of states.</p>
 
 <p>The effect of inhomogeneous broadening is illustrated with a Ramsey sequence in Fig. 6 c). The pulse sequence is presented in the upper panel, and uses the same rotating frame Ramsey Hamiltonian as Fig. 3, $H^{\prime} = H_{\Delta}^{\prime} + H_{Ramsey}^{\prime} = \tfrac{1}{2}(\omega_0 - \omega)\sigma_z^{\prime} + \tfrac{1}{2}\Omega(t) \sigma_x^{\prime}$. To represent a small ensemble of two-level systems we simulate a range of Bloch precession frequencies, manifesting in different $H_{\Delta}^{\prime} = \tfrac{1}{2}(\omega_0 - \omega)\sigma_z^{\prime}$ terms. The $S_x^{\prime}$ trajectory of each Bloch vector is described in the middle panel of Fig. 6 (c), where each system follows a different evolution (see also Supplementary movie 16). In the lower panel of Fig. 6 (c) we plot the average $S_x^{\prime}$ component across this ensemble as a function of time, which oscillates whilst decaying towards zero. The oscillation arises from the nonzero average detuning used in the simulation, $\langle \Delta\rangle = 0.025 \pi$, combined with the small number of precession frequencies sampled. Consequently, as individual systems come in and out of coherence with one another, beat frequencies and revivals in the $S_z^{\prime}$ projection become apparent. In the large ensemble limit, this would instead manifest as a smooth decay envelope. Both the ensemble-averaged and individual Bloch vector trajectories are illustrated on the inset Bloch spheres, where the average spirals towards the centre of the sphere.</p>
 
-<h4>Mitigating Dephasing with Dynamical Decoupling</h4>
+<h4>7.4 Mitigating Dephasing with Dynamical Decoupling</h4>
 
 <p>Dynamical decoupling protocols extend the observed coherence time of a two-level system by actively suppressing dephasing caused by environmental noise. Rather than reversing the fundamental $T_2$ relaxation process, these sequences apply carefully timed control fields that refocus phase errors arising from slow or quasi-static fluctuations in the system’s precession frequency. On the Bloch sphere, this corresponds to periodically reversing unwanted rotations in the $x-y$ plane, preventing the Bloch vector from spreading due to inhomogeneous or slowly varying detuning, leaving only the intrinsic, irreversible decay processes.</p>
 
 <p>This behaviour can be understood in terms of a noise power spectrum, which describes how environmental fluctuations are distributed in frequency. Dynamical decoupling sequences act as a filter function that selectively suppresses noise within certain frequency bands: the Hahn echo strongly cancels low-frequency, slowly varying noise, while adding additional pulses and shortening $\tau$ with the CPMG sequence will narrow and shift the filter passband to higher frequencies, as phase errors are refocused on shorter timescales. In this picture, the effective coherence time is determined by the overlap between the environmental noise spectrum and the filter function of the applied sequence. High-frequency noise components, which vary on timescales shorter than the pulse spacing, cannot be refocused and therefore continue to contribute to irreversible decoherence. The experimentally measured coherence time thus reflects how well the chosen sequence suppresses the dominant noise in the system. Since the relaxation rate is dependent on the specific control sequence used, the resulting decay time is not equivalent to $T_2$ despite often being labelled as such. Instead, we suggest a sequence-specific notation, writing $T_\mathrm{Rabi}$, $T_\mathrm{CPMG}$, and so forth, to distinguish these quantities clearly.</p>
  
-<h3>Conclusions</h3>
+<h3>8. Conclusions</h3>
 
 <p>To conclude, dynamical decoupling protocols decouple unwanted interactions between a two-level system and its local environment by applying carefully controlled, precise operations that dynamically change the population and phase of the system. Here we express each operation as an effective field vector, and introduce an equation of motion, Eq. 1, to illustrate how a particular field vector will change the phase and population of a given state. This framework describes the two-level system using a Bloch vector, represented on the Bloch sphere. We first demonstrate these concepts by simulating the Bloch vector trajectory of a Rabi oscillation, and illustrate how these dynamics can be simplified in a rotating reference frame. We simulate a Ramsey sequence to introduce the concept of a pulsed control scheme, where the Bloch vector is controlled using precisely timed, discrete operations. These ideas are extended into the pulsed dynamical decoupling Hahn Echo and CPMG protocols, where control pulses periodically reverse the Bloch vector phase to enable self-correction against dephasing environmental interactions. In systems with fast dephasing it can be advantageous to use continuous dynamical decoupling techniques. These protocols apply continuous effective fields to constantly correct against deviations from the target two-level phase and population. We simulate the dynamics of two protocols, the spin lock and continuous concatenated dynamical decoupling. Dynamical decoupling schemes are engineered to extend the useable lifetime of the host quantum system. These timescales are quantified by the longitudinal $T_1$, transverse $T_2$ and inhomogeneous $T_2^*$ lifetimes, which we define in the final section. Together, the concepts introduced in this article provide a complete platform-agnostic framework for interpreting and visualising this range of dynamical decoupling protocols. Each technique is used across the quantum technologies community, with high profile demonstrations spanning quantum sensing, quantum memory and entanglement operations. Despite their established status, they continue to push the state-of-the-art, representing a critical tool in the quantum engineer's toolbox. <\p>
 
-<h2> Appendix </h2>
-
-<h3>Modelling<\h3>
-
-<p>The two-level spin dynamics are numerically obtained by integrating the von-Neumann equation, $\dot\rho = -i[H(t),\rho]$, with optional dissipative contributions included via Lindblad terms of the form $L\rho L^\dagger - \frac{1}{2}\{L^\dagger L,\rho\}$. The Hamiltonian is constructed using combinations of Pauli operators with time-dependent coefficients. At each time step, the variation of the density matrix over time is evaluated and implemented into a high accuracy ODE solver. The resulting state is then projected onto the Pauli basis to extract expectation values. While the Hamiltonian itself is decomposed into its composite Pauli operators. These results are then saved, to be used for displaying the results on the Bloch sphere.</p>
-
-<h3>Acknowledgements</h3>
+<h3>9. Acknowledgements</h3>
  
 <p>We would like to express our sincere gratitude to Andrew J. Ramsay for sharing his expertise in spin dynamics, and for the many fruitful discussions that have arisen from his input. We acknowledge and are grateful to the EPSRC quantum career development grant EP/W028301/1 and the EPSRC Standard Research grant EP/Z534250/1.</p>
- 
-<h3> Rabi, Ramsey, Hahn Echo, CPMG and Spin Lock Rotating Reference Frame Transformations </h3>
- 
+
+<h3>
+Open-source software</h3>
+<p>
+As always, our work here depends critically on the open-source software community. Among our crucial dependencies:
+</p>
+
+<ul>
+ <li>
+<a href="https://python.org">Python</a>
+ </li>
+ <li>
+<a href="https://numpy.org">Numpy</a>
+
+[<a class="citation" href="http://doi.org/10.1038/s41586-020-2649-2" title="Array programming with NumPy; Charles R. Harris, K. Jarrod Millman, Stéfan J. van der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J. Smith, Robert Kern, Matti Picus, Stephan Hoyer, Marten H. van Kerkwijk, Matthew Brett, Allan Haldane, Jaime Fernández del Río, Mark Wiebe, Pearu Peterson, Pierre Gérard-Marchant, Kevin Sheppard, Tyler Reddy, Warren Weckesser, Hameer Abbasi, Christoph Gohlke &amp; Travis E. Oliphant; Nature 585, 357–362 (2020)">Harris 2020</a>]
+ </li>
+ <li>
+<a href="https://scipy.org">Scipy</a> 
+
+[<a class="citation" href="http://doi.org/10.1038/s41592-019-0686-2" title="SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python; Pauli Virtanen, Ralf Gommers, Travis E. Oliphant, Matt Haberland, Tyler Reddy, David Cournapeau, Evgeni Burovski, Pearu Peterson, Warren Weckesser, Jonathan Bright, Stéfan J. van der Walt, Matthew Brett, Joshua Wilson, K. Jarrod Millman, Nikolay Mayorov, Andrew R. J. Nelson, Eric Jones, Robert Kern, Eric Larson, CJ Carey, İlhan Polat, Yu Feng, Eric W. Moore, Jake VanderPlas, Denis Laxalde, Josef Perktold, Robert Cimrman, Ian Henriksen, E.A. Quintero, Charles R Harris, Anne M. Archibald, Antônio H. Ribeiro, Fabian Pedregosa, Paul van Mulbregt, and SciPy 1.0 Contributors; Nature Methods, 17(3) 261-272 (2020)">Virtanen 2020</a>]
+ </li>
+ <li>
+<a href="https://matplotlib.org">Matplotlib</a>
+
+<p>We sincerely thank the authors of these projects for enabling our work.</p>
+   
+<h2> Appendix </h2>
+  
+<h3> Appendix 1. Rabi, Ramsey, Hahn Echo, CPMG and Spin Lock Rotating Reference Frame Transformations </h3>
+  
 <p>Throughout the main text we present Bloch vector trajectories in a rotating reference frame that tracks with the Bloch precession term. These trajectories are calculated in the interaction picture, whereby the Hamiltonian governing the interaction is transformed into the target reference frame. Here we provide a detailed derivation of these transformations for the Rabi, Ramsey, Hahn echo, CPMG and spin lock sequences. Each can be derived from the lab frame Hamiltonian, $H$, 
 
 \begin{eqnarray}
@@ -452,14 +471,14 @@ H^{\prime}_{\phi=\tfrac{\pi}{2}} = \tfrac{1}{2}(\omega- \omega_0)\sigma_z-\tfrac
 
 <p>Here we see that including a drive phase $\phi$ allows us to apply pulses or drive fields along either the $x$ or $y$ axes. This is a direct consequence of the Bloch vector's constant precession; although the drive is applied along the $x$ axis in the lab, the vector's intrinsic rotation in the $xy$-plane allows us to align precisely timed pulses with the Bloch vector's $y$-axis. The time dependency of $\Omega(t)$ defines the timing of these pulses, with control protocols periodically switching between $\Omega = 0$ and $\Omega \neq 0$ to drive coherent rotations of the Bloch vector, as described in the main text. Finally we note that for the Rabi oscillation in Fig. 2 we selected a resonant drive, so that $\omega = \omega_0$, and $H^{\prime} = \tfrac{1}{2}\Omega \sigma_x$. </p>
 
-<h3> Reference Frame Transformations of a Continuous Concatenated Dynamical Decoupling Drive </h3>
+<h3> Appendix 2. Reference Frame Transformations of a Continuous Concatenated Dynamical Decoupling Drive </h3>
 
 <p>In Sec. 7.3 of the main text we introduce the continuous concatenated dynamical decoupling drive. The CCDD Hamiltonian is often transformed into a doubly rotating reference frame to reduce the time dependency. In this section we provide a step-by-step derivation of this transformation. The lab frame CCDD Hamiltonian, which includes the Bloch precession term, $H_0$, and the CCDD drive field, $H_{CCDD}$, takes the form,
 \begin{equation}\label{Lab_CCDD}
  H = H_0 + H_{CCDD} = \tfrac{1}{2}\omega_0 \sigma_z + \Omega \cos\left(\omega t - \tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t)\right).
 \end{equation}</p>
 
-<p>We begin by noting the similarity between $H_{CCDD}$ and the drive Hamiltonian used in the previous frame transformations (see Supplementary Note \ 1), where $H_{Drive} = \Omega (t) \cos(\omega t + \phi)\sigma_x$; if we substitute $\phi = - \tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t)$ into $H_{Drive}$, we recover $H_{CCDD}$. To avoid repetition, we therefore continue the CCDD transformation from Eq. \ref{Frame_Transformation_pickup}, and substitute $\phi = - \tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t)$, 
+<p>We begin by noting the similarity between $H_{CCDD}$ and the drive Hamiltonian used in the previous frame transformations (see Appendix \ 1), where $H_{Drive} = \Omega (t) \cos(\omega t + \phi)\sigma_x$; if we substitute $\phi = - \tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t)$ into $H_{Drive}$, we recover $H_{CCDD}$. To avoid repetition, we therefore continue the CCDD transformation from Eq. \ref{Frame_Transformation_pickup}, and substitute $\phi = - \tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t)$, 
 \begin{eqnarray}\label
 HH^{\prime} = \tfrac{1}{2}(\omega- \omega_0)\sigma_z+\tfrac{1}{2}\Omega (t)\left(\cos(\omega_0t - \omega t + \tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t)) + \cos(\omega_0t + \omega t -\tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t))\right)\sigma_x \cdots \nonumber \\ \cdots - \tfrac{1}{2}\Omega (t)\left(\sin(\omega_0t + \omega t - \tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t)) + \sin(\omega_0t - \omega t + \tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t))\right)\sigma_y.
 \end{eqnarray}
@@ -506,35 +525,10 @@ Here we apply the Pauli matrix transformations $\sigma_z\sigma_x = i\sigma_y$, $
 H_{CCDDDetuning}^{\prime\prime} = \tfrac{1}{2}(\Omega -\omega_m)\sigma_x^{\prime\prime} + \tfrac{1}{2}(\omega_0 - \omega)\cos(\omega_m t)\sigma_z^{\prime\prime} + \tfrac{1}{2}(\omega_0 - \omega)(\sin(\omega_m t) \sigma_y^{\prime \prime}).
 \end{eqnarray}</p>
  
-<h3>Simulations</h3>
+<h3>Appendix 3. Simulations</h3>
 
 <p>The two-level spin dynamics are numerically obtained by integrating the von-Neumann equation, $\dot\rho = - i[H(t),\rho]$, with optional dissipative contributions included via Lindblad terms of the form $L\rho L^\dagger - \frac{1}{2}\{L^\dagger L,\rho\}$. The Hamiltonian is constructed using combinations of Pauli operators with time-dependent coefficients. At each time step, the variation of the density matrix over time is evaluated and implemented into a high accuracy ODE solver. The resulting state is then projected onto the Pauli basis to extract expectation values, while the Hamiltonian itself is decomposed into its composite Pauli operators. These results are then saved, to be used for displaying the results on the Bloch sphere.</p>
 
-<h3>
-Open-source software</h3>
-<p>
-As always, our work here depends critically on the open-source software community. Among our crucial dependencies:
-</p>
-
-<ul>
- <li>
-<a href="https://python.org">Python</a>
- </li>
- <li>
-<a href="https://numpy.org">Numpy</a>
-
-[<a class="citation" href="http://doi.org/10.1038/s41586-020-2649-2" title="Array programming with NumPy; Charles R. Harris, K. Jarrod Millman, Stéfan J. van der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J. Smith, Robert Kern, Matti Picus, Stephan Hoyer, Marten H. van Kerkwijk, Matthew Brett, Allan Haldane, Jaime Fernández del Río, Mark Wiebe, Pearu Peterson, Pierre Gérard-Marchant, Kevin Sheppard, Tyler Reddy, Warren Weckesser, Hameer Abbasi, Christoph Gohlke &amp; Travis E. Oliphant; Nature 585, 357–362 (2020)">Harris 2020</a>]
- </li>
- <li>
-<a href="https://scipy.org">Scipy</a> 
-
-[<a class="citation" href="http://doi.org/10.1038/s41592-019-0686-2" title="SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python; Pauli Virtanen, Ralf Gommers, Travis E. Oliphant, Matt Haberland, Tyler Reddy, David Cournapeau, Evgeni Burovski, Pearu Peterson, Warren Weckesser, Jonathan Bright, Stéfan J. van der Walt, Matthew Brett, Joshua Wilson, K. Jarrod Millman, Nikolay Mayorov, Andrew R. J. Nelson, Eric Jones, Robert Kern, Eric Larson, CJ Carey, İlhan Polat, Yu Feng, Eric W. Moore, Jake VanderPlas, Denis Laxalde, Josef Perktold, Robert Cimrman, Ian Henriksen, E.A. Quintero, Charles R Harris, Anne M. Archibald, Antônio H. Ribeiro, Fabian Pedregosa, Paul van Mulbregt, and SciPy 1.0 Contributors; Nature Methods, 17(3) 261-272 (2020)">Virtanen 2020</a>]
- </li>
- <li>
-<a href="https://matplotlib.org">Matplotlib</a>
-
-<p>We sincerely thank the authors of these projects for enabling our work.</p>
- 
 <noscript>
 <h3>Your browser doesn't seem to support Javascript. This document uses Javascript to generate a reference list, which would normally be displayed here. Either activate Javascript, or use the "Download PDF" link above if you want to see the reference list.</h3></noscript>
 
