@@ -102,7 +102,7 @@ The real text begins here.
 <p>The ability to arbitrarily locate and retain any state $|\Psi\rangle$ on this sphere underpins advanced quantum protocols. To visualise this process, $|\Psi\rangle$ can be re-expressed as the Bloch vector $S$, running from the sphere's origin to a point on the surface. We can use the above definitions of $\theta$ and $\phi$ to define $S$ in spherical coordinates, so that $S = \{ \sin{\theta}\cos{\phi}, \sin{\theta}\sin{\phi}, \cos{\theta} \}$. Proposed control schemes aim to manipulate $S$ (and equivalently $|\Psi\rangle$) as a function of time and can be understood using the equation of motion (see Sec. 7 for damping effects)
 
 \begin{equation}{\label{Eq_of_motion}}
-  {\dot{S}} = {\Omega_{eff}}(t)\times {S}.  
+  {\dot{S}} = {\Omega_{eff}}(t)\times {S} (1).  
 \end{equation}
 
 <p>$\Omega_{\mathrm{\mathrm{eff}}}(t)$ describes an effective field vector interacting with the two-level system $S$, and represents the proposed control scheme. Instead of dealing with the Heisenberg or Schrodinger equations to interpret the time-dependency of $|\Psi\rangle$, Eq. 1 allows us to use a vector cross product to interpret the time-dependency of $S$. In other words, evolution of the two-level system $S$ (and equiv. $|\Psi\rangle$) only depends on whether or not the effective field vector $\Omega_{\mathrm{\mathrm{eff}}}(t)$ aligns with the initial Bloch vector $S$. It is common to see $\Omega_{\mathrm{\mathrm{eff}}}(t)$ presented as a Hamiltonian, $H(t)$, where the convention is to use the $\sigma_{x, y, z}$ Pauli matrices to manipulate $|\Psi\rangle$. Crucially, $H(t)$ and $\Omega_{\mathrm{\mathrm{eff}}}(t)$ map directly onto one another, so that $H = \Omega_{\mathrm{\mathrm{eff}}} \cdot \sigma$, where $\sigma$ is a vector containing the three Pauli matrices. This definition means that the $\hat{x}$ terms in the control scheme $\Omega_{\mathrm{\mathrm{eff}}}(t)$ are directly equivalent to the $\sigma_x$ terms in $H(t)$. Throughout this article we will use $H$, to describe the interactions of our model two-level system, and then consider the corresponding effective field $\Omega_{\mathrm{eff}}(t)$ to visualise dynamics on the Bloch sphere.</p>
@@ -406,12 +406,10 @@ As always, our work here depends critically on the open-source software communit
  <li>
 <a href="https://numpy.org">Numpy</a>
 
-[<a class="citation" href="http://doi.org/10.1038/s41586-020-2649-2" title="Array programming with NumPy; Charles R. Harris, K. Jarrod Millman, Stéfan J. van der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J. Smith, Robert Kern, Matti Picus, Stephan Hoyer, Marten H. van Kerkwijk, Matthew Brett, Allan Haldane, Jaime Fernández del Río, Mark Wiebe, Pearu Peterson, Pierre Gérard-Marchant, Kevin Sheppard, Tyler Reddy, Warren Weckesser, Hameer Abbasi, Christoph Gohlke &amp; Travis E. Oliphant; Nature 585, 357–362 (2020)">Harris 2020</a>]
  </li>
  <li>
 <a href="https://scipy.org">Scipy</a> 
 
-[<a class="citation" href="http://doi.org/10.1038/s41592-019-0686-2" title="SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python; Pauli Virtanen, Ralf Gommers, Travis E. Oliphant, Matt Haberland, Tyler Reddy, David Cournapeau, Evgeni Burovski, Pearu Peterson, Warren Weckesser, Jonathan Bright, Stéfan J. van der Walt, Matthew Brett, Joshua Wilson, K. Jarrod Millman, Nikolay Mayorov, Andrew R. J. Nelson, Eric Jones, Robert Kern, Eric Larson, CJ Carey, İlhan Polat, Yu Feng, Eric W. Moore, Jake VanderPlas, Denis Laxalde, Josef Perktold, Robert Cimrman, Ian Henriksen, E.A. Quintero, Charles R Harris, Anne M. Archibald, Antônio H. Ribeiro, Fabian Pedregosa, Paul van Mulbregt, and SciPy 1.0 Contributors; Nature Methods, 17(3) 261-272 (2020)">Virtanen 2020</a>]
  </li>
  <li>
 <a href="https://matplotlib.org">Matplotlib</a>
@@ -452,9 +450,10 @@ which can be further simplified with the trigonometric identities, $\sin(2\theta
 H^{\prime} = \tfrac{1}{2}(\omega- \omega_0)\sigma_z+\cos(\omega_0t)\Omega (t) \cos(\omega t + \phi)\sigma_x - \sin(\omega_0t)\Omega (t) \cos(\omega t+ \phi)\sigma_y.
 \end{eqnarray}
 To remove the time dependence of the trigonometric terms, we first use $\cos(\theta)\cos(\phi) = \tfrac{1}{2}(\cos(\theta - \phi) + \cos(\theta + \phi))$ and $\sin(\theta)cos(\phi) = \tfrac{1}{2} (\sin(\theta + \phi) + \sin(\theta - \phi))$;
-\begin{align}\label{Frame_Transformation_pickup}
+
+ \begin{align}
 H^{\prime} = \tfrac{1}{2}(\omega- \omega_0)\sigma_z+\tfrac{1}{2}\Omega (t)\left(\cos(\omega_0t - \omega t - \phi) + \cos(\omega_0t + \omega t + \phi)\right)\sigma_x \cdots \nonumber \\ 
-\cdots - \tfrac{1}{2}\Omega (t)\left(\sin(\omega_0t + \omega t + \phi) + \sin(\omega_0t - \omega t - \phi)\right)\sigma_y.
+\cdots - \tfrac{1}{2}\Omega (t)\left(\sin(\omega_0t + \omega t + \phi) + \sin(\omega_0t - \omega t - \phi)\right)\sigma_y (<span id="Eq. 2">2</span>).
 \end{align}</p>
 
 <p>At this point our choice of $\phi$ will impact how we apply this Hamiltonian. For control protocols that apply a field along the the $x$ ($y$) direction, $\phi = 0$ ($\phi = \tfrac{\pi}{2}$). We assume that, whilst some detuning may be present, $\omega$ and $\omega_0$ are comparable in magnitude, so that $\tfrac{1}{2}\Omega (t)(\cos(\omega_0t - \omega t - \phi))\approx\tfrac{1}{2}\Omega (t)\cos(\phi)$ and $\tfrac{1}{2}\Omega (t)(\sin(\omega_0t - \omega t - \phi))\approx\tfrac{1}{2}\Omega (t)\sin(\phi)$. Applying these approximations we find,
@@ -476,11 +475,11 @@ H^{\prime}_{\phi=\tfrac{\pi}{2}} = \tfrac{1}{2}(\omega- \omega_0)\sigma_z-\tfrac
 <h3> Appendix 2. Reference Frame Transformations of a Continuous Concatenated Dynamical Decoupling Drive </h3>
 
 <p>In Sec. 7.3 of the main text we introduce the continuous concatenated dynamical decoupling drive. The CCDD Hamiltonian is often transformed into a doubly rotating reference frame to reduce the time dependency. In this section we provide a step-by-step derivation of this transformation. The lab frame CCDD Hamiltonian, which includes the Bloch precession term, $H_0$, and the CCDD drive field, $H_{CCDD}$, takes the form,
-\begin{equation}\label{Lab_CCDD}
+\begin{equation}
  H = H_0 + H_{CCDD} = \tfrac{1}{2}\omega_0 \sigma_z + \Omega \cos\left(\omega t - \tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t)\right).
 \end{equation}</p>
 
-<p>We begin by noting the similarity between $H_{CCDD}$ and the drive Hamiltonian used in the previous frame transformations (see Appendix 1), where $H_{Drive} = \Omega (t) \cos(\omega t + \phi)\sigma_x$; if we substitute $\phi = - \tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t)$ into $H_{Drive}$, we recover $H_{CCDD}$. To avoid repetition, we therefore continue the CCDD transformation from Eq. \ref{Frame_Transformation_pickup}, and substitute $\phi = - \tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t)$, 
+<p>We begin by noting the similarity between $H_{CCDD}$ and the drive Hamiltonian used in the previous frame transformations (see Appendix 1), where $H_{Drive} = \Omega (t) \cos(\omega t + \phi)\sigma_x$; if we substitute $\phi = - \tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t)$ into $H_{Drive}$, we recover $H_{CCDD}$. To avoid repetition, we therefore continue the CCDD transformation from Eq. <a href="Eq. 2">2</a>, and substitute $\phi = - \tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t)$, 
 \begin{eqnarray}\label
 HH^{\prime} = \tfrac{1}{2}(\omega- \omega_0)\sigma_z+\tfrac{1}{2}\Omega (t)\left(\cos(\omega_0t - \omega t + \tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t)) + \cos(\omega_0t + \omega t -\tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t))\right)\sigma_x \cdots \nonumber \\ \cdots - \tfrac{1}{2}\Omega (t)\left(\sin(\omega_0t + \omega t - \tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t)) + \sin(\omega_0t - \omega t + \tfrac{2 \epsilon_m}{\Omega}\sin(\omega_m t))\right)\sigma_y.
 \end{eqnarray}
