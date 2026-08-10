@@ -39,18 +39,6 @@ function update_Figure_6() {
   image.src = filename;
 }
 
-function update_scarlet_FMN_figure() {
-  var filename = "./images/Scarlet_bead_figure/pngs/" + document.getElementById("scarlet_FMN_traces").value; 
-  var image = document.getElementById("scarlet_FMN");
-  image.src = filename;
-}
-
-function update_MagLOV_figure() {
-  var filename = "./images/MagLOV_figure/" + document.getElementById("MagLOV_traces").value; 
-  var image = document.getElementById("MagLOV_evolution");
-  image.src = filename;
-}
-
 // Appendix
 
 function update_coli_figure() {
